@@ -55,7 +55,7 @@ module Idem
       memoized_methods.key?(name)
     end
 
-    # Return original instance method
+    # Return unmemoized instance method
     #
     # @example
     #
@@ -67,7 +67,7 @@ module Idem
     #     memoize :bar
     #   end
     #
-    #   Foo.original_instance_method(:bar)  # => UnboundMethod, where source_location still points to original!
+    #   Foo.unmemoized_instance_method(:bar)
     #
     # @param [Symbol] name
     #
@@ -78,7 +78,7 @@ module Idem
     #   raised if the method is unknown
     #
     # @api public
-    def original_instance_method(name)
+    def unmemoized_instance_method(name)
       memoized_methods[name]
     end
 
