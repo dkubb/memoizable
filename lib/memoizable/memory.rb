@@ -45,7 +45,7 @@ module Memoizable
     # @yieldreturn [Object]
     #   the value to memoize
     #
-    # @ @api public
+    # @api public
     def fetch(name)
       @memory.fetch(name) { self[name] = yield }
     end
