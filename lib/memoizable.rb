@@ -2,13 +2,13 @@
 
 require 'thread_safe'
 
-require 'idem/instance_methods'
-require 'idem/module_methods'
-require 'idem/memory'
-require 'idem/version'
+require 'memoizable/instance_methods'
+require 'memoizable/module_methods'
+require 'memoizable/memory'
+require 'memoizable/version'
 
-# Allow methods to be idempotent
-module Idem
+# Allow methods to be memoizablepotent
+module Memoizable
 
   # Default freezer
   Freezer = lambda { |object| object.freeze }.freeze
@@ -16,7 +16,7 @@ module Idem
   # Hook called when module is included
   #
   # @param [Module] descendant
-  #   the module or class including Idem
+  #   the module or class including Memoizable
   #
   # @return [self]
   #
@@ -28,4 +28,4 @@ module Idem
     end
   end
 
-end # Idem
+end # Memoizable

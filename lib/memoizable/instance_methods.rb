@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Idem
+module Memoizable
 
-  # Methods mixed in to idem instances
+  # Methods mixed in to memoizable instances
   module InstanceMethods
 
     # Freeze the object
@@ -63,4 +63,4 @@ module Idem
     end
 
   end # InstanceMethods
-end # Idem
+end # Memoizable

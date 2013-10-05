@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Idem
+module Memoizable
 
-  # Methods mixed in to idem singleton classes
+  # Methods mixed in to memoizable singleton classes
   module ModuleMethods
 
     # Return default deep freezer
@@ -35,7 +35,7 @@ module Idem
     #
     # @example
     #   class Foo
-    #     include Idem
+    #     include Memoizable
     #
     #     def bar
     #     end
@@ -60,7 +60,7 @@ module Idem
     # @example
     #
     #   class Foo
-    #     include Idem
+    #     include Memoizable
     #
     #     def bar
     #     end
@@ -147,4 +147,4 @@ module Idem
     end
 
   end # ModuleMethods
-end # Idem
+end # Memoizable

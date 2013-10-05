@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Idem
+module Memoizable
 
   # Storage for memoized methods
   class Memory
@@ -75,4 +75,4 @@ module Idem
     end
 
   end # Memory
-end # Idem
+end # Memoizable
