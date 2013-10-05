@@ -50,6 +50,18 @@ module Memoizable
       @memory.fetch(name) { self[name] = yield }
     end
 
+    # Set the memory
+    #
+    # @param [Hash]
+    #
+    # @return [Memory]
+    #
+    # @api public
+    def set(data)
+      data.each { |name, value| self[name] = value }
+      self
+    end
+
     # Test if the name has a value in memory
     #
     # @param [Symbol] name

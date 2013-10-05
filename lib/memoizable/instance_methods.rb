@@ -36,18 +36,16 @@ module Memoizable
     # Sets a memoized value for a method
     #
     # @example
-    #   object.memoize(:hash, 12345)
+    #   object.memoize(hash: 12345)
     #
-    # @param [Symbol] name
-    #   the method name
-    # @param [Object] value
-    #   the value to memoize
+    # @param [Hash{Symbol => Object}] data
+    #   the data to memoize
     #
     # @return [self]
     #
     # @api public
-    def memoize(name, value)
-      memoized_method_cache[name] = value
+    def memoize(data)
+      memoized_method_cache.set(data)
       self
     end
 
