@@ -1,18 +1,18 @@
-# idem
+# memoizable
 
 Memoize method return values
 
-[![Gem Version](https://badge.fury.io/rb/idem.png)][gem]
-[![Build Status](https://secure.travis-ci.org/dkubb/idem.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/dkubb/idem.png)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/dkubb/idem.png)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/dkubb/idem/badge.png?branch=master)][coveralls]
+[![Gem Version](https://badge.fury.io/rb/memoizable.png)][gem]
+[![Build Status](https://secure.travis-ci.org/dkubb/memoizable.png?branch=master)][travis]
+[![Dependency Status](https://gemnasium.com/dkubb/memoizable.png)][gemnasium]
+[![Code Climate](https://codeclimate.com/github/dkubb/memoizable.png)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/dkubb/memoizable/badge.png?branch=master)][coveralls]
 
-[gem]: https://rubygems.org/gems/idem
-[travis]: https://travis-ci.org/dkubb/idem
-[gemnasium]: https://gemnasium.com/dkubb/idem
-[codeclimate]: https://codeclimate.com/github/dkubb/idem
-[coveralls]: https://coveralls.io/r/dkubb/idem
+[gem]: https://rubygems.org/gems/memoizable
+[travis]: https://travis-ci.org/dkubb/memoizable
+[gemnasium]: https://gemnasium.com/dkubb/memoizable
+[codeclimate]: https://codeclimate.com/github/dkubb/memoizable
+[coveralls]: https://coveralls.io/r/dkubb/memoizable
 
 ## Contributing
 

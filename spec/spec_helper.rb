@@ -21,7 +21,7 @@ if ENV['COVERAGE'] == 'true'
 end
 
 require 'devtools/spec_helper'
-require 'idem'
+require 'memoizable'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expect_with|
