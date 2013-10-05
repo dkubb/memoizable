@@ -14,7 +14,7 @@ module Idem
     #
     # @api public
     def freeze
-      memory  # initialize memory
+      memoized_method_cache  # initialize method cache
       super
     end
 
@@ -30,7 +30,7 @@ module Idem
     #
     # @api public
     def memoized(name)
-      memory[name]
+      memoized_method_cache[name]
     end
 
     # Sets a memoized value for a method
@@ -47,7 +47,7 @@ module Idem
     #
     # @api public
     def memoize(name, value)
-      memory[name] = value
+      memoized_method_cache[name] = value
       self
     end
 
@@ -58,8 +58,8 @@ module Idem
     # @return [Hash]
     #
     # @api private
-    def memory
-      @__memory ||= Memory.new(self.class.freezer)
+    def memoized_method_cache
+      @__memoized_method_cache ||= Memory.new(self.class.freezer)
     end
 
   end # InstanceMethods

@@ -127,7 +127,7 @@ module Idem
       name = method.name.to_sym
       undef_method(name)
       define_method(name) do ||
-        memory.fetch(name) { method.bind(self).call }
+        memoized_method_cache.fetch(name) { method.bind(self).call }
       end
     end
 
