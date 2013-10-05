@@ -7,7 +7,7 @@ require 'memoizable/module_methods'
 require 'memoizable/memory'
 require 'memoizable/version'
 
-# Allow methods to be memoizablepotent
+# Allow methods to be idempotent
 module Memoizable
 
   # Default freezer
