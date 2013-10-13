@@ -18,21 +18,6 @@ module Memoizable
       super
     end
 
-    # Get the memoized value for a method
-    #
-    # @example
-    #   hash = object.memoized(:hash)
-    #
-    # @param [Symbol] name
-    #   the method name
-    #
-    # @return [Object]
-    #
-    # @api public
-    def memoized(name)
-      memoized_method_cache[name]
-    end
-
     # Sets a memoized value for a method
     #
     # @example
