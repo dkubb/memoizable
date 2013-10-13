@@ -3,12 +3,13 @@ before_install: gem install bundler
 bundler_args: --without yard guard benchmarks
 script: "bundle exec rake ci"
 rvm:
-  - rbx-18mode
-  - rbx-19mode
+  - ree
   - 1.8.7
   - 1.9.3
   - 2.0.0
   - ruby-head
+  - rbx-18mode
+  - rbx-19mode
 matrix:
   include:
     - rvm: jruby-18mode
@@ -17,8 +18,6 @@ matrix:
       env: JRUBY_OPTS="$JRUBY_OPTS --debug"
     - rvm: jruby-head
       env: JRUBY_OPTS="$JRUBY_OPTS --debug"
-  allow_failures:
-    - rvm: ruby-head  # travis broken
 notifications:
   irc:
     channels:
