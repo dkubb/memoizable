@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Memoizable
 
   # Storage for memoized methods
