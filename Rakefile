@@ -1,5 +1,4 @@
 # encoding: utf-8
 
-require 'devtools'
-
-Devtools.init_rake_tasks
+require 'bundler'
+Bundler::GemHelper.install_tasks
