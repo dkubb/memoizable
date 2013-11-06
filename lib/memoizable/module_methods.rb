@@ -94,7 +94,7 @@ module Memoizable
     # @api private
     def memoize_method(method_name)
       method = instance_method(method_name)
-      if method.arity.nonzero?
+      if method.arity > 0
         raise ArgumentError, 'Cannot memoize method with nonzero arity'
       end
       memoized_methods[method_name] = method
