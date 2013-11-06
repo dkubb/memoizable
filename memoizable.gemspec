@@ -2,22 +2,19 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'memoizable/version'
 
-Gem::Specification.new do |gem|
-  gem.name        = 'memoizable'
-  gem.version     = Memoizable::VERSION.dup
-  gem.authors     = ['Dan Kubb', 'Erik Michaels-Ober']
-  gem.email       = ['dan.kubb@gmail.com', 'Erik Michaels-Ober']
-  gem.description = 'Memoize method return values'
-  gem.summary     = gem.description
-  gem.homepage    = 'https://github.com/dkubb/memoizable'
-  gem.licenses    = %w[MIT]
+Gem::Specification.new do |spec|
+  spec.add_development_dependency('bundler', '~> 1.3', '>= 1.3.5')
+  spec.add_dependency('thread_safe', '~> 0.1.3')
 
-  gem.require_paths    = %w[lib]
-  gem.files            = `git ls-files`.split($/)
-  gem.test_files       = `git ls-files -- spec/{unit,integration}`.split($/)
-  gem.extra_rdoc_files = %w[LICENSE README.md CONTRIBUTING.md TODO]
-
-  gem.add_runtime_dependency('thread_safe', '~> 0.1.3')
-
-  gem.add_development_dependency('bundler', '~> 1.3', '>= 1.3.5')
+  spec.authors       = ["Dan Kubb"]
+  spec.description   = %q{Memoize method return values}
+  spec.email         = ["dan.kubb@gmail.com"]
+  spec.files         = %w[CONTRIBUTING.md LICENSE.md README.md Rakefile memoizable.gemspec]
+  spec.files        += Dir.glob("lib/**/*.rb")
+  spec.homepage      = 'https://github.com/dkubb/memoizable'
+  spec.licenses      = %w[MIT]
+  spec.name          = 'memoizable'
+  spec.require_paths = %w[lib]
+  spec.summary       = spec.description
+  spec.version       = Memoizable::VERSION.dup
 end
