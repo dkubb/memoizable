@@ -1,10 +1,12 @@
+require 'thread_safe'
+
 module Memoizable
 
   # Storage for memoized methods
   class Memory
 
     def initialize(freezer)
-      @memory  = ThreadSafe::Hash.new
+      @memory  = ThreadSafe::Cache.new
       @freezer = freezer
     end
 
