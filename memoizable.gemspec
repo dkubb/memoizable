@@ -5,8 +5,8 @@ require 'memoizable/version'
 Gem::Specification.new do |gem|
   gem.name        = 'memoizable'
   gem.version     = Memoizable::VERSION.dup
-  gem.authors     = ['Dan Kubb']
-  gem.email       = 'dan.kubb@gmail.com'
+  gem.authors     = ['Dan Kubb', 'Erik Michaels-Ober']
+  gem.email       = ['dan.kubb@gmail.com', 'Erik Michaels-Ober']
   gem.description = 'Memoize method return values'
   gem.summary     = gem.description
   gem.homepage    = 'https://github.com/dkubb/memoizable'

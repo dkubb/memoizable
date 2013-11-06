@@ -20,4 +20,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Copyright
 
-Copyright &copy; 2013 Dan Kubb. See LICENSE for details.
+Copyright &copy; 2013 Dan Kubb, Erik Michaels-Ober. See LICENSE for details.
