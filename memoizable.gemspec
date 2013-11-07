@@ -11,10 +11,12 @@ Gem::Specification.new do |spec|
   spec.email         = ["dan.kubb@gmail.com"]
   spec.files         = %w[CONTRIBUTING.md LICENSE.md README.md Rakefile memoizable.gemspec]
   spec.files        += Dir.glob("lib/**/*.rb")
+  spec.files        += Dir.glob("spec/**/*")
   spec.homepage      = 'https://github.com/dkubb/memoizable'
   spec.licenses      = %w[MIT]
   spec.name          = 'memoizable'
   spec.require_paths = %w[lib]
   spec.summary       = spec.description
+  spec.test_files    = Dir.glob("spec/**/*")
   spec.version       = Memoizable::VERSION.dup
 end
