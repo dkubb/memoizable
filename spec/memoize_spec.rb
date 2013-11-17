@@ -32,6 +32,12 @@ shared_examples_for 'memoizes method' do
   end
 end
 
+shared_examples_for 'a command method' do
+  it 'returns self' do
+    should equal(object)
+  end
+end
+
 describe Memoizable::ModuleMethods, '#memoize' do
   subject { object.memoize(method) }
 
@@ -54,6 +60,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
   context 'memoized method that returns generated values' do
     let(:method) { :some_state }
 
+    it_should_behave_like 'a command method'
     it_should_behave_like 'memoizes method'
 
     it 'creates a method that returns a frozen value' do
@@ -65,6 +72,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
   context 'public method' do
     let(:method) { :public_method }
 
+    it_should_behave_like 'a command method'
     it_should_behave_like 'memoizes method'
 
     it 'is still a public method' do
@@ -80,6 +88,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
   context 'protected method' do
     let(:method) { :protected_method }
 
+    it_should_behave_like 'a command method'
     it_should_behave_like 'memoizes method'
 
     it 'is still a protected method' do
@@ -95,6 +104,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
   context 'private method' do
     let(:method) { :private_method }
 
+    it_should_behave_like 'a command method'
     it_should_behave_like 'memoizes method'
 
     it 'is still a private method' do
