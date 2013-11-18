@@ -10,11 +10,11 @@ Gem::Specification.new do |gem|
   gem.homepage    = 'https://github.com/dkubb/memoizable'
   gem.license     = 'MIT'
 
-  gem.require_paths   = %w[lib]
-  gem.files           = %w[CONTRIBUTING.md LICENSE.md README.md Rakefile memoizable.gemspec]
-  gem.files          += Dir.glob('lib/**/*.rb')
-  gem.files          += Dir.glob('spec/**/*')
-  gem.test_files      = Dir.glob('spec/**/*')
+  gem.require_paths    = %w[lib]
+  gem.files            = %w[CONTRIBUTING.md LICENSE.md README.md Rakefile memoizable.gemspec]
+  gem.files           += Dir.glob('lib/**/*.rb')
+  gem.files           += Dir.glob('spec/**/*')
+  gem.test_files       = Dir.glob('spec/**/*')
   gem.extra_rdoc_files = %w[LICENSE.md README.md CONTRIBUTING.md]
 
   gem.add_runtime_dependency('thread_safe', '~> 0.1.3')
