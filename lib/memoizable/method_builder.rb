@@ -8,9 +8,13 @@ module Memoizable
 
       # Initialize an invalid arity exception
       #
+      # @param [Module] descendant
+      # @param [Symbol] method
+      # @param [Integer] arity
+      #
       # @api private
-      def initialize
-        super('Cannot memoize method with nonzero arity')
+      def initialize(descendant, method, arity)
+        super("Cannot memoize #{descendant}##{method}, it's arity is #{arity}")
       end
 
     end # InvalidArityError
@@ -63,7 +67,10 @@ module Memoizable
     #
     # @api private
     def assert_zero_arity
-      raise InvalidArityError unless @original_method.arity.zero?
+      arity = @original_method.arity
+      if arity.nonzero?
+        raise InvalidArityError.new(@descendant, @method_name, arity)
+      end
     end
 
     # Remove the original method

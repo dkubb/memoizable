@@ -42,18 +42,21 @@ describe Memoizable::ModuleMethods, '#memoize' do
   subject { object.memoize(method) }
 
   let(:object) do
-    Class.new(MemoizableSpecs::Object) do
+    stub_const 'TestClass', Class.new(MemoizableSpecs::Object) {
       def some_state
         Object.new
       end
-    end
+    }
   end
 
   context 'on method with arguments' do
     let(:method) { :argumented }
 
     it 'should raise error' do
-      expect { subject }.to raise_error(ArgumentError, 'Cannot memoize method with nonzero arity')
+      expect { subject }.to raise_error(
+        Memoizable::MethodBuilder::InvalidArityError,
+        "Cannot memoize TestClass#argumented, it's arity is 1"
+      )
     end
   end
 
