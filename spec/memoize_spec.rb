@@ -49,13 +49,24 @@ describe Memoizable::ModuleMethods, '#memoize' do
     }
   end
 
-  context 'on method with arguments' do
-    let(:method) { :argumented }
+  context 'on method with required arguments' do
+    let(:method) { :required_arguments }
 
     it 'should raise error' do
       expect { subject }.to raise_error(
         Memoizable::MethodBuilder::InvalidArityError,
-        "Cannot memoize TestClass#argumented, it's arity is 1"
+        "Cannot memoize TestClass#required_arguments, it's arity is 1"
+      )
+    end
+  end
+
+  context 'on method with optional arguments' do
+    let(:method) { :optional_arguments }
+
+    it 'should raise error' do
+      expect { subject }.to raise_error(
+        Memoizable::MethodBuilder::InvalidArityError,
+        "Cannot memoize TestClass#optional_arguments, it's arity is -1"
       )
     end
   end

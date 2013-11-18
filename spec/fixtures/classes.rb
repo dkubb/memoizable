@@ -2,7 +2,10 @@ module MemoizableSpecs
   class Object
     include Memoizable
 
-    def argumented(foo)
+    def required_arguments(foo)
+    end
+
+    def optional_arguments(foo = nil)
     end
 
     def test
