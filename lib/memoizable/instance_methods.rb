@@ -40,7 +40,7 @@ module Memoizable
     #
     # @api private
     def memoized_method_cache
-      @__memoized_method_cache ||= Memory.new(self.class.freezer)
+      @_memoized_method_cache ||= Memory.new(self.class.freezer)
     end
 
   end # InstanceMethods

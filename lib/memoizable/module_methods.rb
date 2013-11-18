@@ -110,7 +110,7 @@ module Memoizable
     # @api private
     #
     def memoized_methods
-      @__memoized_methods ||= Memory.new(freezer)
+      @_memoized_methods ||= Memory.new(freezer)
     end
 
     # Define a memoized method that delegates to the original method
