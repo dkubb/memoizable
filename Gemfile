@@ -1,11 +1,15 @@
-# encoding: utf-8
-
 source 'https://rubygems.org'
 
 gemspec
 
-group :development, :test do
-  gem 'devtools', git: 'https://github.com/rom-rb/devtools.git'
+gem 'rake'
+
+group :test do
+  gem 'coveralls', :require => false
+  gem 'rspec',     '~> 2.14'
+  gem 'simplecov', :require => false
 end
 
-eval_gemfile 'Gemfile.devtools'
+platforms :ruby_18, :jruby do
+  gem 'mime-types', '~> 1.25'
+end
