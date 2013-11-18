@@ -1,6 +1,7 @@
 require 'thread_safe'
 
 require 'memoizable/instance_methods'
+require 'memoizable/method_builder'
 require 'memoizable/module_methods'
 require 'memoizable/memory'
 require 'memoizable/version'
