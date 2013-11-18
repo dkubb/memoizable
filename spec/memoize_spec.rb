@@ -1,4 +1,4 @@
-require 'helper'
+require 'spec_helper'
 require File.expand_path('../fixtures/classes', __FILE__)
 
 shared_examples_for 'memoizes method' do

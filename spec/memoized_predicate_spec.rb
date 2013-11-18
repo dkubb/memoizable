@@ -1,4 +1,4 @@
-require 'helper'
+require 'spec_helper'
 
 describe Memoizable::ModuleMethods, '#memoized?' do
   let(:object) do
