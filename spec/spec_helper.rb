@@ -5,7 +5,15 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-SimpleCov.start
+SimpleCov.start do
+  command_name 'spec'
+
+  add_filter 'config'
+  add_filter 'spec'
+  add_filter 'vendor'
+
+  minimum_coverage 86.67
+end
 
 require 'memoizable'
 require 'rspec'
