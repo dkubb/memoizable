@@ -1,5 +1,3 @@
-require 'thread_safe'
-
 module Memoizable
 
   # Storage for memoized methods
