@@ -10,12 +10,7 @@ rvm:
   - rbx-19mode
   - jruby-18mode
   - jruby-19mode
-matrix:
-  include:
-    - rvm: jruby-19mode
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
-    - rvm: jruby-head
-      env: JRUBY_OPTS="$JRUBY_OPTS --debug"  # for simplecov
+  - jruby-head
 notifications:
   irc:
     channels:
