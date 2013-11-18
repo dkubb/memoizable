@@ -10,6 +10,6 @@ group :test do
   gem 'simplecov', :require => false
 end
 
-platforms :ruby_18 do
+platforms :ruby_18, :jruby do
   gem 'mime-types', '~> 1.25'
 end
