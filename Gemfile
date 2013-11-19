@@ -13,3 +13,7 @@ end
 platforms :ruby_18, :jruby do
   gem 'mime-types', '~> 1.25'
 end
+
+platforms :rbx do
+  gem 'rubinius-coverage', git: 'https://github.com/rubinius/rubinius-coverage.git'
+end
