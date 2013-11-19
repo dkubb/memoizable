@@ -30,7 +30,7 @@ module Memoizable
     #
     # @api public
     def []=(name, value)
-      if @memory.key?(name)
+      if key?(name)
         raise ArgumentError, "The method #{name} is already memoized"
       end
       @memory[name] = freeze_value(value)
