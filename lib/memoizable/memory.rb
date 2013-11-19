@@ -17,7 +17,7 @@ module Memoizable
     # @api public
     def [](name)
       @memory.fetch(name) do
-        raise NameError, "No method #{name.inspect} was memoized"
+        raise NameError, "No method #{name} is memoized"
       end
     end
 
