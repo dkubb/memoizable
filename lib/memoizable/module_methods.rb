@@ -8,7 +8,6 @@ module Memoizable
     # @return [#call]
     #
     # @api private
-    #
     def freezer
       Freezer
     end
@@ -101,7 +100,6 @@ module Memoizable
     # @return [Hash<Symbol, MethodBuilder>]
     #
     # @api private
-    #
     def memoized_methods
       @_memoized_methods ||= Memory.new(freezer)
     end
