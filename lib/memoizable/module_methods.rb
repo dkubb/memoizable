@@ -85,8 +85,6 @@ module Memoizable
     #
     # @param [Symbol] method_name
     #   a method name to memoize
-    # @param [#call] freezer
-    #   a freezer for memoized values
     #
     # @return [undefined]
     #
