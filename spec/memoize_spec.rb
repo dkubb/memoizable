@@ -8,12 +8,6 @@ shared_examples_for 'memoizes method' do
     expect(instance.send(method)).to be(instance.send(method))
   end
 
-  it 'creates a method that returns a same value' do
-    subject
-    instance = object.new
-    expect(instance.send(method)).to be(instance.send(method))
-  end
-
   it 'creates a method with an arity of 0' do
     subject
     expect(object.new.method(method).arity).to be_zero
