@@ -6,6 +6,7 @@ module Memoizable
     def initialize(freezer)
       @memory  = ThreadSafe::Cache.new
       @freezer = freezer
+      freeze
     end
 
     # Get the value from memory
