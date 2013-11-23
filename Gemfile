@@ -15,5 +15,8 @@ platforms :ruby_18, :jruby do
 end
 
 platforms :rbx do
-  gem 'rubinius-coverage', :git => 'https://github.com/rubinius/rubinius-coverage.git'
+  gem 'rubinius-coverage',  '~> 2.0'
+  gem 'rubysl-coverage',    '~> 2.0'
+  gem 'rubysl-singleton',   '~> 2.0'
+  gem 'rubysl-prettyprint', '~> 2.0'
 end
