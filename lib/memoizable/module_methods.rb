@@ -103,7 +103,8 @@ module Memoizable
     #
     # @api private
     def memoize_method(method_name)
-      memoized_methods[method_name] = MethodBuilder.new(self, method_name).call
+      memoized_methods[method_name] = MethodBuilder
+        .new(self, method_name, freezer).call
     end
 
     # Return method builder registry
@@ -112,7 +113,7 @@ module Memoizable
     #
     # @api private
     def memoized_methods
-      @_memoized_methods ||= Memory.new(freezer)
+      @_memoized_methods ||= Memory.new
     end
 
   end # ModuleMethods

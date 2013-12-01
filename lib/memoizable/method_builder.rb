@@ -30,13 +30,15 @@ module Memoizable
     #
     # @param [Module] descendant
     # @param [Symbol] method_name
+    # @param [#call] freezer
     #
     # @return [undefined]
     #
     # @api private
-    def initialize(descendant, method_name)
+    def initialize(descendant, method_name, freezer)
       @descendant          = descendant
       @method_name         = method_name
+      @freezer             = freezer
       @original_visibility = visibility
       @original_method     = @descendant.instance_method(@method_name)
       assert_zero_arity
@@ -88,9 +90,11 @@ module Memoizable
     #
     # @api private
     def create_memoized_method
-      descendant_exec(@method_name, @original_method) do |name, method|
+      descendant_exec(@method_name, @original_method, @freezer) do |name, method, freezer|
         define_method(name) do ||
-          memoized_method_cache.fetch(name, &method.bind(self))
+          memoized_method_cache.fetch(name) do
+            freezer.call(method.bind(self).call)
+          end
         end
       end
     end

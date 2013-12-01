@@ -3,9 +3,8 @@ module Memoizable
   # Storage for memoized methods
   class Memory
 
-    def initialize(freezer)
-      @memory  = ThreadSafe::Cache.new
-      @freezer = freezer
+    def initialize
+      @memory = ThreadSafe::Cache.new
       freeze
     end
 
@@ -34,7 +33,7 @@ module Memoizable
       if key?(name)
         raise ArgumentError, "The method #{name} is already memoized"
       end
-      @memory[name] = freeze_value(value)
+      @memory[name] = value
     end
 
     # Fetch the value from memory, or store it if it does not exist
@@ -70,19 +69,6 @@ module Memoizable
     # @api public
     def key?(name)
       @memory.key?(name)
-    end
-
-  private
-
-    # Freeze the value
-    #
-    # @param [Object] value
-    #
-    # @return [Object]
-    #
-    # @api private
-    def freeze_value(value)
-      @freezer.call(value)
     end
 
   end # Memory

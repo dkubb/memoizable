@@ -12,7 +12,7 @@ SimpleCov.start do
   add_filter 'spec'
   add_filter 'vendor'
 
-  minimum_coverage 90.29
+  minimum_coverage 90.1
 end
 
 require 'memoizable'
