@@ -81,6 +81,19 @@ module Memoizable
 
   private
 
+    # Hook called when module is included
+    #
+    # @param [Module] descendant
+    #   the module including ModuleMethods
+    #
+    # @return [self]
+    #
+    # @api private
+    def included(descendant)
+      super
+      descendant.module_eval { include Memoizable }
+    end
+
     # Memoize the named method
     #
     # @param [Symbol] method_name

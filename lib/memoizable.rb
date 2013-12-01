@@ -21,6 +21,7 @@ module Memoizable
   #
   # @api private
   def self.included(descendant)
+    super
     descendant.module_eval do
       extend ModuleMethods
       include InstanceMethods
