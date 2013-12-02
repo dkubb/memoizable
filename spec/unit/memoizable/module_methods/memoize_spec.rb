@@ -32,7 +32,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
   subject { object.memoize(method) }
 
   let(:object) do
-    stub_const 'TestClass', Class.new(MemoizableSpecs::Object) {
+    stub_const 'TestClass', Class.new(Fixture::Object) {
       def some_state
         Object.new
       end

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module MemoizableSpecs
+module Fixture
   class Object
     include Memoizable
 
@@ -31,4 +31,4 @@ module MemoizableSpecs
     end
 
   end # class Object
-end # module MemoizableSpecs
+end # module Fixture

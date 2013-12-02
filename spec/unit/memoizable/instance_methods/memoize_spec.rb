@@ -6,9 +6,9 @@ require File.expand_path('../../fixtures/classes', __FILE__)
 describe Memoizable::InstanceMethods, '#memoize' do
   subject { object.memoize(method => value) }
 
-  let(:described_class) { Class.new(MemoizableSpecs::Object) }
-  let(:object)          { described_class.new                }
-  let(:method)          { :test                              }
+  let(:described_class) { Class.new(Fixture::Object) }
+  let(:object)          { described_class.new        }
+  let(:method)          { :test                      }
 
   before do
     described_class.memoize(method)
