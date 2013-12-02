@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require File.expand_path('../fixtures/classes', __FILE__)
+require File.expand_path('../../fixtures/classes', __FILE__)
 
 shared_examples_for 'memoizes method' do
   it 'memoizes the instance method' do
