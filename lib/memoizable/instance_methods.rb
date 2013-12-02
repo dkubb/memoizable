@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Memoizable
 
   # Methods mixed in to memoizable instances

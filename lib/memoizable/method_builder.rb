@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Memoizable
 
   # Build the memoized method
