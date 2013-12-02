@@ -9,9 +9,14 @@ describe Memoizable::ModuleMethods, '#unmemoized_instance_method' do
     Class.new do
       include Memoizable
 
-      def foo; end
+      def initialize
+        @foo = 0
+      end
 
-      alias_method :original_foo, :foo
+      def foo
+        @foo += 1
+      end
+
       memoize :foo
     end
   end
@@ -20,11 +25,9 @@ describe Memoizable::ModuleMethods, '#unmemoized_instance_method' do
     let(:name) { :foo }
 
     it 'returns the original method' do
-      should eql(object.instance_method(:original_foo))
-    end
-
-    it 'is different from the memoized method' do
-      should_not eql(object.instance_method(:foo))
+      # original method is not memoized
+      method = subject.bind(object.new)
+      expect(method.call).to_not be(method.call)
     end
   end
 
