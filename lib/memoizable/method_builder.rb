@@ -71,7 +71,7 @@ module Memoizable
     def assert_zero_arity
       arity = @original_method.arity
       if arity.nonzero?
-        raise InvalidArityError.new(@descendant, @method_name, arity)
+        fail InvalidArityError.new(@descendant, @method_name, arity)
       end
     end
 

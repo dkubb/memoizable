@@ -17,7 +17,7 @@ module Memoizable
     # @api public
     def [](name)
       @memory.fetch(name) do
-        raise NameError, "No method #{name} is memoized"
+        fail NameError, "No method #{name} is memoized"
       end
     end
 
@@ -31,7 +31,7 @@ module Memoizable
     # @api public
     def []=(name, value)
       if key?(name)
-        raise ArgumentError, "The method #{name} is already memoized"
+        fail ArgumentError, "The method #{name} is already memoized"
       end
       @memory[name] = value
     end
