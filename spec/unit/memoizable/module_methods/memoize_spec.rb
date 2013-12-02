@@ -28,12 +28,6 @@ shared_examples_for 'memoizes method' do
   end
 end
 
-shared_examples_for 'a command method' do
-  it 'returns self' do
-    should equal(object)
-  end
-end
-
 describe Memoizable::ModuleMethods, '#memoize' do
   subject { object.memoize(method) }
 
