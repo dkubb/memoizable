@@ -24,6 +24,8 @@ describe Memoizable::ModuleMethods, '#unmemoized_instance_method' do
   context 'when the method was memoized' do
     let(:name) { :foo }
 
+    it { should be_instance_of(UnboundMethod) }
+
     it 'returns the original method' do
       # original method is not memoized
       method = subject.bind(object.new)
