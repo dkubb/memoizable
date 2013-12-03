@@ -10,6 +10,7 @@ require 'memoizable/version'
 
 # Allow methods to be memoized
 module Memoizable
+  include InstanceMethods
 
   # Default freezer
   Freezer = lambda { |object| object.freeze }.freeze
@@ -24,10 +25,8 @@ module Memoizable
   # @api private
   def self.included(descendant)
     super
-    descendant.module_eval do
-      extend ModuleMethods
-      include InstanceMethods
-    end
+    descendant.extend(ModuleMethods)
   end
+  private_class_method :included
 
 end # Memoizable
