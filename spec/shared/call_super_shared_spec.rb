@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 shared_examples 'it calls super' do |method|
   around do |example|
     # Restore original method after each example
