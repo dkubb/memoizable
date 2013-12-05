@@ -14,7 +14,7 @@ module Memoizable
   include InstanceMethods
 
   # Default freezer
-  Freezer = lambda { |object| object.freeze }.freeze
+  Freezer = ->(object) { object.freeze }.freeze
 
   # Hook called when module is included
   #

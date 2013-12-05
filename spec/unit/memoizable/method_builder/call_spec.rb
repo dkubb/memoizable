@@ -7,7 +7,7 @@ describe Memoizable::MethodBuilder, '#call' do
   subject { object.call }
 
   let(:object)   { described_class.new(descendant, method_name, freezer) }
-  let(:freezer)  { lambda { |object| object.freeze }                     }
+  let(:freezer)  { ->(object) { object.freeze }                          }
   let(:instance) { descendant.new                                        }
 
   let(:descendant) do

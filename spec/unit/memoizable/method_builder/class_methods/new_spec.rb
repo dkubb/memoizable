@@ -6,8 +6,8 @@ require File.expand_path('../../../fixtures/classes', __FILE__)
 describe Memoizable::MethodBuilder, '.new' do
   subject { described_class.new(descendant, method_name, freezer) }
 
-  let(:descendant) { Fixture::Object                   }
-  let(:freezer)    { lambda { |object| object.freeze } }
+  let(:descendant) { Fixture::Object              }
+  let(:freezer)    { ->(object) { object.freeze } }
 
   context 'with a zero arity method' do
     let(:method_name) { :zero_arity }
