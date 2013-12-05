@@ -1,9 +1,11 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
 describe Memoizable::Memory do
   let(:memory) { Memoizable::Memory.new }
 
-  context "serialization" do
+  context 'serialization' do
     let(:deserialized) { Marshal.load(Marshal.dump(memory)) }
 
     it 'is serializable with Marshal' do

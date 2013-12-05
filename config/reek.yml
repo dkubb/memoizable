@@ -1,7 +1,8 @@
 ---
 Attribute:
   enabled: true
-  exclude: []
+  exclude:
+  - Memoizable::MethodBuilder
 BooleanParameter:
   enabled: true
   exclude: []
@@ -18,7 +19,8 @@ DataClump:
   min_clump_size: 2
 DuplicateMethodCall:
   enabled: true
-  exclude: []
+  exclude:
+  - Memoizable::Memory#fetch  # double-checked lock requires duplicate code
   max_calls: 1
   allow_calls: []
 FeatureEnvy:
@@ -40,7 +42,9 @@ LongYieldList:
   max_params: 2
 NestedIterators:
   enabled: true
-  exclude: []
+  exclude:
+  - Memoizable::Memory#fetch  # uses nested blocks
+  - Memoizable::MethodBuilder#create_memoized_method
   max_allowed_nesting: 1
   ignore_iterators: []
 NilCheck:
@@ -52,7 +56,8 @@ RepeatedConditional:
   max_ifs: 1
 TooManyInstanceVariables:
   enabled: true
-  exclude: []
+  exclude:
+  - Memoizable::MethodBuilder
   max_instance_variables: 3
 TooManyMethods:
   enabled: true
@@ -61,8 +66,9 @@ TooManyMethods:
 TooManyStatements:
   enabled: true
   exclude:
+  - Memoizable::MethodBuilder#initialize
   - each
-  max_statements: 2
+  max_statements: 5
 UncommunicativeMethodName:
   enabled: true
   exclude: []

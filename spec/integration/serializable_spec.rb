@@ -6,7 +6,7 @@ class Serializable
   include Memoizable
 
   def random_number
-    rand(10000)
+    rand(10_000)
   end
   memoize :random_number
 end
@@ -17,7 +17,8 @@ describe 'A serializable object' do
   end
 
   before do
-    serializable.random_number # Call the memoized method to trigger lazy memoization
+    # Call the memoized method to trigger lazy memoization
+    serializable.random_number
   end
 
   it 'is serializable with Marshal' do
