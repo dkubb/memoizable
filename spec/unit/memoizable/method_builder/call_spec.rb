@@ -6,19 +6,27 @@ require File.expand_path('../../fixtures/classes', __FILE__)
 describe Memoizable::MethodBuilder, '#call' do
   subject { object.call }
 
-  let(:object)     { described_class.new(descendant, method_name, freezer) }
-  let(:descendant) { Fixture::Object                                       }
-  let(:freezer)    { lambda { |object| object.freeze }                     }
+  let(:object)   { described_class.new(descendant, method_name, freezer) }
+  let(:freezer)  { lambda { |object| object.freeze }                     }
+  let(:instance) { descendant.new                                        }
 
-  around do |example|
-    # Restore original method after each example
-    method_name = self.method_name
-    original    = "original_#{method_name}"
-    descendant.class_eval do
-      alias_method original, method_name
-      example.call
-      undef_method method_name
-      alias_method method_name, original
+  let(:descendant) do
+    Class.new do
+      include Memoizable
+
+      def public_method
+        __method__.to_s
+      end
+
+      def protected_method
+        __method__.to_s
+      end
+      protected :protected_method
+
+      def private_method
+        __method__.to_s
+      end
+      private :private_method
     end
   end
 
@@ -27,8 +35,12 @@ describe Memoizable::MethodBuilder, '#call' do
 
     it 'creates a method that is memoized' do
       subject
-      instance = descendant.new
       expect(instance.send(method_name)).to be(instance.send(method_name))
+    end
+
+    it 'creates a method that returns the expected value' do
+      subject
+      expect(instance.send(method_name)).to eql(method_name.to_s)
     end
 
     it 'creates a method that returns a frozen value' do
