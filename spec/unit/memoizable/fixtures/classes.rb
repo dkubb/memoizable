@@ -14,6 +14,13 @@ module Fixture
       'test'
     end
 
+    def zero_arity
+      caller
+    end
+
+    def one_arity(arg)
+    end
+
     def public_method
       caller
     end
