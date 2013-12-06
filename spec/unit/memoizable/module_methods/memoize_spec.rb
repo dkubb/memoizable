@@ -45,7 +45,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
     it 'should raise error' do
       expect { subject }.to raise_error(
         Memoizable::MethodBuilder::InvalidArityError,
-        "Cannot memoize TestClass#required_arguments, it's arity is 1"
+        "Cannot memoize TestClass#required_arguments, its arity is 1"
       )
     end
   end
@@ -56,7 +56,7 @@ describe Memoizable::ModuleMethods, '#memoize' do
     it 'should raise error' do
       expect { subject }.to raise_error(
         Memoizable::MethodBuilder::InvalidArityError,
-        "Cannot memoize TestClass#optional_arguments, it's arity is -1"
+        "Cannot memoize TestClass#optional_arguments, its arity is -1"
       )
     end
   end
