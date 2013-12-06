@@ -16,7 +16,7 @@ module Memoizable
       #
       # @api private
       def initialize(descendant, method, arity)
-        super("Cannot memoize #{descendant}##{method}, it's arity is #{arity}")
+        super("Cannot memoize #{descendant}##{method}, its arity is #{arity}")
       end
 
     end # InvalidArityError
