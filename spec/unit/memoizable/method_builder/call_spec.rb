@@ -47,6 +47,14 @@ describe Memoizable::MethodBuilder, '#call' do
       subject
       expect(descendant.new.send(method_name)).to be_frozen
     end
+
+    it 'creates a method that does not accept a block' do
+      subject
+      expect { descendant.new.send(method_name) {} }.to raise_error(
+        described_class::BlockNotAllowedError,
+        "Cannot pass a block to #{descendant}##{method_name}, it is memoized"
+      )
+    end
   end
 
   context 'public method' do

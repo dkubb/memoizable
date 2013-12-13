@@ -21,6 +21,21 @@ module Memoizable
 
     end # InvalidArityError
 
+    # Raised when a block is passed to a memoized method
+    class BlockNotAllowedError < ArgumentError
+
+      # Initialize a block not allowed exception
+      #
+      # @param [Module] descendant
+      # @param [Symbol] method
+      #
+      # @api private
+      def initialize(descendant, method)
+        super("Cannot pass a block to #{descendant}##{method}, it is memoized")
+      end
+
+    end # BlockNotAllowedError
+
     # The original method before memoization
     #
     # @return [UnboundMethod]
@@ -94,7 +109,8 @@ module Memoizable
     # @api private
     def create_memoized_method
       descendant_exec(@method_name, @original_method, @freezer) do |name, method, freezer|
-        define_method(name) do ||
+        define_method(name) do |&block|
+          fail BlockNotAllowedError.new(self.class, name) if block
           memoized_method_cache.fetch(name) do
             freezer.call(method.bind(self).call)
           end
