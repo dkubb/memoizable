@@ -43,7 +43,7 @@ module Memoizable
       @freezer             = freezer
       @original_visibility = visibility
       @original_method     = @descendant.instance_method(@method_name)
-      assert_zero_arity
+      assert_arity(@original_method.arity)
     end
 
     # Build a new memoized method
@@ -65,13 +65,14 @@ module Memoizable
 
     # Assert the method arity is zero
     #
+    # @param [Integer] arity
+    #
     # @return [undefined]
     #
     # @raise [InvalidArityError]
     #
     # @api private
-    def assert_zero_arity
-      arity = @original_method.arity
+    def assert_arity(arity)
       if arity.nonzero?
         fail InvalidArityError.new(@descendant, @method_name, arity)
       end
