@@ -27,7 +27,7 @@ describe Memoizable::MethodBuilder, '.new' do
     it 'raises an exception' do
       expect { subject }.to raise_error(
         described_class::InvalidArityError,
-        "Cannot memoize Fixture::Object#one_arity, its arity is 1"
+        'Cannot memoize Fixture::Object#one_arity, its arity is 1'
       )
     end
   end
