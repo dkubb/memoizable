@@ -5,6 +5,11 @@ module Memoizable
   # Storage for memoized methods
   class Memory
 
+    # Initialize the memory storage for memoized methods
+    #
+    # @return [undefined]
+    #
+    # @api private
     def initialize
       @memory = ThreadSafe::Cache.new
       freeze
