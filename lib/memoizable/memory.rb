@@ -37,10 +37,12 @@ module Memoizable
     #
     # @api public
     def []=(name, value)
-      if key?(name)
-        fail ArgumentError, "The method #{name} is already memoized"
+      memoized = true
+      @memory.compute_if_absent(name) do
+        memoized = false
+        value
       end
-      @memory[name] = value
+      fail ArgumentError, "The method #{name} is already memoized" if memoized
     end
 
     # Fetch the value from memory, or store it if it does not exist
