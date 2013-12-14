@@ -53,8 +53,8 @@ module Memoizable
     #   the value to memoize
     #
     # @api public
-    def fetch(name)
-      @memory.fetch(name) { self[name] = yield }
+    def fetch(name, &block)
+      @memory.compute_if_absent(name, &block)
     end
 
     # Set the memory
