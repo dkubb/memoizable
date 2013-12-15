@@ -11,7 +11,8 @@ module Memoizable
     #
     # @api private
     def initialize
-      @memory = ThreadSafe::Cache.new
+      @memory  = ThreadSafe::Cache.new
+      @monitor = Monitor.new
       freeze
     end
 
@@ -53,8 +54,14 @@ module Memoizable
     #   the value to memoize
     #
     # @api public
-    def fetch(name, &block)
-      @memory.compute_if_absent(name, &block)
+    def fetch(name)
+      @memory.fetch(name) do       # check for the key
+        @monitor.synchronize do    # acquire a lock if the key is not found
+          @memory.fetch(name) do   # recheck under lock
+            self[name] = yield     # set the value
+          end
+        end
+      end
     end
 
     # Set the memory
