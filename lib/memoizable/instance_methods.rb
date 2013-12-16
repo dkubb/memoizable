@@ -30,7 +30,7 @@ module Memoizable
     #
     # @api public
     def memoize(data)
-      memoized_method_cache.set(data)
+      data.each { |name, value| memoized_method_cache[name] = value }
       self
     end
 
