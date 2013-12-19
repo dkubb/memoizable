@@ -11,8 +11,7 @@ module Memoizable
     #
     # @api private
     def initialize
-      @memory  = ThreadSafe::Cache.new
-      @monitor = Monitor.new
+      @memory  = Hash.new
       freeze
     end
 
@@ -39,9 +38,9 @@ module Memoizable
     # @api public
     def []=(name, value)
       memoized = true
-      @memory.compute_if_absent(name) do
+      @memory.fetch(name) do
         memoized = false
-        value
+        @memory[name] = value
       end
       fail ArgumentError, "The method #{name} is already memoized" if memoized
     end
@@ -55,12 +54,8 @@ module Memoizable
     #
     # @api public
     def fetch(name)
-      @memory.fetch(name) do       # check for the key
-        @monitor.synchronize do    # acquire a lock if the key is not found
-          @memory.fetch(name) do   # recheck under lock
-            self[name] = yield     # set the value
-          end
-        end
+      @memory.fetch(name) do
+        self[name] = yield
       end
     end
 
