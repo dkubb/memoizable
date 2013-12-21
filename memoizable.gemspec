@@ -18,7 +18,5 @@ Gem::Specification.new do |gem|
   gem.test_files       = Dir.glob('spec/{unit,integration}/**/*.rb')
   gem.extra_rdoc_files = Dir.glob('**/*.md')
 
-  gem.add_runtime_dependency('thread_safe', '~> 0.1.3')
-
   gem.add_development_dependency('bundler', '~> 1.3', '>= 1.3.5')
 end
