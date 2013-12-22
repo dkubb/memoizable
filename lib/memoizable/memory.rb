@@ -7,11 +7,13 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
+    # @param [ThreadSafe::Cache] memory
+    #
     # @return [undefined]
     #
     # @api private
-    def initialize
-      @memory  = ThreadSafe::Cache.new
+    def initialize(memory = ThreadSafe::Cache.new)
+      @memory  = memory
       @monitor = Monitor.new
       freeze
     end
@@ -75,5 +77,25 @@ module Memoizable
       @memory.key?(name)
     end
 
+    # Provides marshalling support for use by the Marshal library.
+    #
+    # @return [Hash] A hash used to populate the internal memory
+    #
+    # @api public
+    def marshal_dump
+      @memory.marshal_dump
+    end
+
+    # Provides marshalling support for use by the Marshal library.
+    #
+    # @param [Hash] hash A hash used to populate the internal memory
+    #
+    # @return [Memoizable::Memory]
+    #
+    # @api public
+    def marshal_load(hash)
+      cache = ThreadSafe::Cache.new.marshal_load(hash)
+      initialize(cache)
+    end
   end # Memory
 end # Memoizable
