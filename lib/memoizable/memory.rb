@@ -79,7 +79,8 @@ module Memoizable
 
     # Provides marshalling support for use by the Marshal library.
     #
-    # @return [Hash] A hash used to populate the internal memory
+    # @return [Hash]
+    #   A hash used to populate the internal memory
     #
     # @api public
     def marshal_dump
@@ -88,7 +89,8 @@ module Memoizable
 
     # Provides marshalling support for use by the Marshal library.
     #
-    # @param [Hash] hash A hash used to populate the internal memory
+    # @param [Hash] hash
+    #   A hash used to populate the internal memory
     #
     # @return [Memoizable::Memory]
     #
