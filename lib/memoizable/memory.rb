@@ -77,7 +77,7 @@ module Memoizable
       @memory.key?(name)
     end
 
-    # Provides marshalling support for use by the Marshal library.
+    # A hook that allows Marshal to dump the object
     #
     # @return [Hash]
     #   A hash used to populate the internal memory
@@ -87,7 +87,7 @@ module Memoizable
       @memory.marshal_dump
     end
 
-    # Provides marshalling support for use by the Marshal library.
+    # A hook that allows Marshal to load the object
     #
     # @param [Hash] hash
     #   A hash used to populate the internal memory
