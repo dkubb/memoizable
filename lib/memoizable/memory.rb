@@ -99,5 +99,6 @@ module Memoizable
       cache = ThreadSafe::Cache.new.marshal_load(hash)
       initialize(cache)
     end
+
   end # Memory
 end # Memoizable
