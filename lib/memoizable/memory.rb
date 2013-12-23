@@ -12,8 +12,8 @@ module Memoizable
     # @return [undefined]
     #
     # @api private
-    def initialize(memory = ThreadSafe::Cache.new)
-      @memory  = memory
+    def initialize
+      @memory  = ThreadSafe::Cache.new
       @monitor = Monitor.new
       freeze
     end
@@ -92,12 +92,12 @@ module Memoizable
     # @param [Hash] hash
     #   A hash used to populate the internal memory
     #
-    # @return [Memoizable::Memory]
+    # @return [undefined]
     #
     # @api public
     def marshal_load(hash)
-      cache = ThreadSafe::Cache.new.marshal_load(hash)
-      initialize(cache)
+      initialize
+      @memory.marshal_load(hash)
     end
 
   end # Memory
