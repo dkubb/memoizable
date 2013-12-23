@@ -99,7 +99,8 @@ module Memoizable
     #
     # @api private
     def remove_original_method
-      descendant_exec(@method_name) { |name| undef_method(name) }
+      name = @method_name
+      @descendant.module_eval { undef_method(name) }
     end
 
     # Create a new memoized method
@@ -108,7 +109,8 @@ module Memoizable
     #
     # @api private
     def create_memoized_method
-      descendant_exec(@method_name, @original_method, @freezer) do |name, method, freezer|
+      name, method, freezer = @method_name, @original_method, @freezer
+      @descendant.module_eval do
         define_method(name) do |&block|
           fail BlockNotAllowedError.new(self.class, name) if block
           memoized_method_cache.fetch(name) do
@@ -137,17 +139,6 @@ module Memoizable
       elsif @descendant.protected_method_defined?(@method_name) then :protected
       else                                                           :public
       end
-    end
-
-    # Helper method to execute code within the descendant scope
-    #
-    # @param [Array] args
-    #
-    # @return [undefined]
-    #
-    # @api private
-    def descendant_exec(*args, &block)
-      @descendant.instance_exec(*args, &block)
     end
 
   end # MethodBuilder
