@@ -5,8 +5,8 @@ require File.expand_path('../lib/memoizable/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name        = 'memoizable'
   gem.version     = Memoizable::VERSION.dup
-  gem.authors     = ['Dan Kubb']
-  gem.email       = 'dan.kubb@gmail.com'
+  gem.authors     = ['Dan Kubb', 'Erik Michaels-Ober']
+  gem.email       = ['dan.kubb@gmail.com', 'sferik@gmail.com']
   gem.description = 'Memoize method return values'
   gem.summary     = gem.description
   gem.homepage    = 'https://github.com/dkubb/memoizable'
