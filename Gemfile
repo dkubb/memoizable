@@ -15,10 +15,3 @@ end
 platforms :ruby_18, :jruby do
   gem 'mime-types', '~> 1.25'
 end
-
-platforms :rbx do
-  gem 'rubinius-coverage',  '~> 2.0'
-  gem 'rubysl-coverage',    '~> 2.0'
-  gem 'rubysl-singleton',   '~> 2.0'
-  gem 'rubysl-prettyprint', '~> 2.0'
-end
