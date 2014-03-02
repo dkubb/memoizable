@@ -1,18 +1,18 @@
 # Memoizable
 
-Memoize method return values
-
-[![Gem Version](https://badge.fury.io/rb/memoizable.png)][gem]
-[![Build Status](https://secure.travis-ci.org/dkubb/memoizable.png?branch=master)][travis]
-[![Dependency Status](https://gemnasium.com/dkubb/memoizable.png)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/dkubb/memoizable.png)][codeclimate]
-[![Coverage Status](https://coveralls.io/repos/dkubb/memoizable/badge.png?branch=master)][coveralls]
+[![Gem Version](http://img.shields.io/gem/v/memoizable.svg)][gem]
+[![Build Status](http://img.shields.io/travis/dkubb/memoizable.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/dkubb/memoizable.svg)][gemnasium]
+[![Code Climate](http://img.shields.io/codeclimate/github/dkubb/memoizable.svg)][codeclimate]
+[![Coverage Status](http://img.shields.io/coveralls/dkubb/memoizable.svg)][coveralls]
 
 [gem]: https://rubygems.org/gems/memoizable
 [travis]: https://travis-ci.org/dkubb/memoizable
 [gemnasium]: https://gemnasium.com/dkubb/memoizable
 [codeclimate]: https://codeclimate.com/github/dkubb/memoizable
 [coveralls]: https://coveralls.io/r/dkubb/memoizable
+
+Memoize method return values
 
 ## Contributing
 
