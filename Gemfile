@@ -4,14 +4,14 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rake'
+gem 'rake', '~> 10.2.1'
 
 group :test do
-  gem 'coveralls', :require => false
+  gem 'coveralls', '~> 0.7.0', :require => false
   gem 'rspec',     '~> 2.14'
-  gem 'simplecov', :require => false
+  gem 'simplecov', '~> 0.8.2', :require => false
 end
 
 platforms :ruby_18, :jruby do
-  gem 'mime-types', '~> 1.25'
+  gem 'mime-types', '~> 2.2'
 end
