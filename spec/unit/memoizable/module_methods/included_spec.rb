@@ -11,7 +11,7 @@ describe Memoizable::ModuleMethods, '#included' do
 
   before do
     # Prevent Module.included from being called through inheritance
-    Memoizable.stub(:included)
+    allow(Memoizable).to receive(:included)
   end
 
   it_behaves_like 'it calls super', :included
