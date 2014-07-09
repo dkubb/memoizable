@@ -13,5 +13,6 @@ group :test do
 end
 
 platforms :ruby_18, :jruby do
-  gem 'mime-types', '~> 2.2'
+  gem 'mime-types',  '~> 1.25'
+  gem 'rest-client', '~> 1.6.8'
 end
