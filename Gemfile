@@ -7,9 +7,9 @@ gemspec
 gem 'rake', '~> 10.1'
 
 group :test do
-  gem 'coveralls', '~> 0.7.0', :require => false
+  gem 'coveralls', '~> 0.7.0'
   gem 'rspec',     '~> 2.14'
-  gem 'simplecov', '~> 0.8.2', :require => false
+  gem 'simplecov', '~> 0.9.0'
 end
 
 platforms :ruby_18, :jruby do
