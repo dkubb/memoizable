@@ -13,6 +13,6 @@ group :test do
 end
 
 platforms :ruby_18, :jruby do
-  gem 'mime-types',  '~> 2.4.3'
+  gem 'mime-types',  '~> 1.25'   # last 1.8.7 compatible version
   gem 'rest-client', '~> 1.6.7'  # blocked by coveralls
 end
