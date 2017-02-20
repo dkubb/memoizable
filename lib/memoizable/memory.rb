@@ -13,7 +13,7 @@ module Memoizable
     #
     # @api private
     def initialize
-      @memory  = ThreadSafe::Cache.new
+      @memory  = Concurrent::Map.new
       @monitor = Monitor.new
       freeze
     end

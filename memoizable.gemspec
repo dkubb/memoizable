@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.files            = %w[CONTRIBUTING.md LICENSE.md README.md memoizable.gemspec] + Dir['lib/**/*.rb']
   gem.extra_rdoc_files = Dir['**/*.md']
 
-  gem.add_runtime_dependency('thread_safe', '~> 0.3', '>= 0.3.4')
+  gem.add_runtime_dependency('concurrent-ruby', '~> 1.0', '>= 1.0.4')
 
   gem.add_development_dependency('bundler', '~> 1.7', '>= 1.7.9')
 end
