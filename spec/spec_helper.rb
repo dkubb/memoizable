@@ -1,10 +1,9 @@
 # encoding: utf-8
 
-if RUBY_VERSION >= '1.9'
+if RUBY_ENGINE.eql?('ruby')
   require 'simplecov'
-  require 'coveralls'
 
-  SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter]
+  SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]
 
   SimpleCov.start do
     add_filter '/config'

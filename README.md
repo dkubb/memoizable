@@ -1,16 +1,13 @@
 # Memoizable
 
 [![Gem Version](http://img.shields.io/gem/v/memoizable.svg)][gem]
-[![Build Status](http://img.shields.io/travis/dkubb/memoizable.svg)][travis]
+![CI](https://github.com/dkubb/memoizable/workflows/CI/badge.svg)
 [![Dependency Status](http://img.shields.io/gemnasium/dkubb/memoizable.svg)][gemnasium]
 [![Code Climate](http://img.shields.io/codeclimate/github/dkubb/memoizable.svg)][codeclimate]
-[![Coverage Status](http://img.shields.io/coveralls/dkubb/memoizable.svg)][coveralls]
 
 [gem]: https://rubygems.org/gems/memoizable
-[travis]: https://travis-ci.org/dkubb/memoizable
 [gemnasium]: https://gemnasium.com/dkubb/memoizable
 [codeclimate]: https://codeclimate.com/github/dkubb/memoizable
-[coveralls]: https://coveralls.io/r/dkubb/memoizable
 
 Memoize method return values
 
@@ -76,21 +73,19 @@ result. Please keep this in mind when considering which methods to memoize.
 Supported Ruby Versions
 -----------------------
 
-This library aims to support and is [tested against][travis] the following Ruby
+This library aims to support and is tested against the following Ruby
 implementations:
 
-* Ruby 1.8.7
-* Ruby 1.9.2
-* Ruby 1.9.3
-* Ruby 2.0.0
-* Ruby 2.1.0
-* [JRuby][]
-* [Rubinius][]
-* [Ruby Enterprise Edition][ree]
+* Ruby 2.1
+* Ruby 2.2
+* Ruby 2.3
+* Ruby 2.4
+* Ruby 2.5
+* Ruby 2.6
+* Ruby 2.7
+* [JRuby][jruby]
 
 [jruby]: http://jruby.org/
-[rubinius]: http://rubini.us/
-[ree]: http://www.rubyenterpriseedition.com/
 
 If something doesn't work on one of these versions, it's a bug.
 
