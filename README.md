@@ -2,8 +2,6 @@
 
 [![Gem Version](http://img.shields.io/gem/v/memoizable.svg)][gem]
 [![Build Status](http://img.shields.io/travis/dkubb/memoizable.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/dkubb/memoizable.svg)][gemnasium]
-[![Code Climate](http://img.shields.io/codeclimate/github/dkubb/memoizable.svg)][codeclimate]
 [![Coverage Status](http://img.shields.io/coveralls/dkubb/memoizable.svg)][coveralls]
 
 [gem]: https://rubygems.org/gems/memoizable
