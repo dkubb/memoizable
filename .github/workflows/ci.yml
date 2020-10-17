@@ -1,0 +1,36 @@
+name: CI
+
+on: push
+
+jobs:
+  base:
+    name: Base steps
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check Whitespace
+      run: git diff --check -- HEAD~1
+  rspec:
+    name: RSpec
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby:
+        - ruby-2.1
+        - ruby-2.2
+        - ruby-2.3
+        - ruby-2.4
+        - ruby-2.5
+        - ruby-2.6
+        - ruby-2.7
+        - jruby
+        os: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - run: bundle install
+    - run: bundle exec rspec spec
