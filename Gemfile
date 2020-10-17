@@ -8,5 +8,5 @@ gem 'rake', '~> 10.1'
 
 group :test do
   gem 'rspec',     '~> 3.9'
-  gem 'simplecov', '~> 0.9.1'
+  gem 'simplecov', '~> 0.18.5'
 end
