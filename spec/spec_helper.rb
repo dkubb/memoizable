@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 if RUBY_ENGINE.eql?('ruby')
   require 'simplecov'
 

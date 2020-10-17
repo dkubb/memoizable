@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'monitor'
 require 'thread_safe'
 
