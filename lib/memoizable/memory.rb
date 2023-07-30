@@ -7,8 +7,6 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
-    # @param [ThreadSafe::Cache] memory
-    #
     # @return [undefined]
     #
     # @api private
