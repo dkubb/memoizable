@@ -3,9 +3,10 @@ require 'spec_helper'
 describe Memoizable::Memory, '#[]=' do
   subject { object[name] = value }
 
-  let(:object) { described_class.new      }
-  let(:name)   { :test                    }
-  let(:value)  { instance_double('Value') }
+  let(:object) { described_class.new(cache) }
+  let(:cache)  { ThreadSafe::Cache.new      }
+  let(:name)   { :test                      }
+  let(:value)  { instance_double('Value')   }
 
   context 'when the events are not mocked' do
     context 'when the memory is set' do
@@ -46,7 +47,6 @@ describe Memoizable::Memory, '#[]=' do
     end
 
     before do
-      allow(ThreadSafe::Cache).to receive(:new).and_return(cache)
       allow(Monitor).to receive(:new).and_return(monitor)
     end
 

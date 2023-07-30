@@ -7,11 +7,13 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
+    # @param [ThreadSafe::Cache] memory
+    #
     # @return [undefined]
     #
     # @api private
-    def initialize
-      @memory  = ThreadSafe::Cache.new
+    def initialize(memory)
+      @memory  = memory
       @monitor = Monitor.new
       freeze
     end
@@ -109,7 +111,7 @@ module Memoizable
     #
     # @api public
     def marshal_load(hash)
-      initialize
+      initialize(ThreadSafe::Cache.new)
       @memory.marshal_load(hash)
     end
 

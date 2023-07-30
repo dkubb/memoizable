@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Memoizable::Memory, '#[]' do
   subject { object[name] }
 
-  let(:object) { described_class.new }
-  let(:name)   { :test               }
+  let(:object) { described_class.new(ThreadSafe::Cache.new) }
+  let(:name)   { :test                                      }
 
   context 'when the memory is set' do
     let(:value) { instance_double('Value') }

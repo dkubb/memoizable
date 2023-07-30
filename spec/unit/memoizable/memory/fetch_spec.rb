@@ -3,7 +3,8 @@ require 'spec_helper'
 describe Memoizable::Memory, '#fetch' do
   subject { object.fetch(name) { default } }
 
-  let(:object)  { described_class.new        }
+  let(:object)  { described_class.new(cache) }
+  let(:cache)   { ThreadSafe::Cache.new      }
   let(:name)    { :test                      }
   let(:default) { instance_double('Default') }
   let(:value)   { instance_double('Value')   }
@@ -70,7 +71,6 @@ describe Memoizable::Memory, '#fetch' do
     end
 
     before do
-      allow(ThreadSafe::Cache).to receive(:new).and_return(cache)
       allow(Monitor).to receive(:new).and_return(monitor)
     end
 
