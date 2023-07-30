@@ -5,7 +5,7 @@ jobs:
     name: Base steps
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Check Whitespace
       run: git diff --check -- HEAD~1
   rspec:
@@ -17,7 +17,7 @@ jobs:
         ruby-version: [2.1, 2.3, 2.4, 2.5, 2.6, 2.7, jruby]
         os: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
