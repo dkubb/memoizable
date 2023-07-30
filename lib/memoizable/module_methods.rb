@@ -106,7 +106,7 @@ module Memoizable
     #
     # @api private
     def memoized_methods
-      @_memoized_methods ||= Memory.new
+      @_memoized_methods ||= {}
     end
 
   end # ModuleMethods

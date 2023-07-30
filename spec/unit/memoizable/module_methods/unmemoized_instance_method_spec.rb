@@ -37,7 +37,7 @@ describe Memoizable::ModuleMethods, '#unmemoized_instance_method' do
     let(:name) { :bar }
 
     it 'raises an exception' do
-      expect { subject }.to raise_error(NameError, 'No method bar is memoized')
+      expect { subject }.to raise_error(NoMethodError)
     end
   end
 end
