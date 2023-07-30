@@ -73,7 +73,6 @@ module Memoizable
     #
     # @api public
     def call
-      remove_original_method
       create_memoized_method
       set_method_visibility
       self
@@ -94,16 +93,6 @@ module Memoizable
       if arity.nonzero?
         fail InvalidArityError.new(@descendant, @method_name, arity)
       end
-    end
-
-    # Remove the original method
-    #
-    # @return [undefined]
-    #
-    # @api private
-    def remove_original_method
-      name = @method_name
-      @descendant.module_eval { undef_method(name) }
     end
 
     # Create a new memoized method
