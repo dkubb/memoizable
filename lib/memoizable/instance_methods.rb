@@ -15,7 +15,7 @@ module Memoizable
     # @api public
     def freeze
       memoized_method_cache  # initialize method cache
-      super
+      super()
     end
 
     # Sets a memoized value for a method
