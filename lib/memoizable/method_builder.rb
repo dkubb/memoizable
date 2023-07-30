@@ -118,7 +118,7 @@ module Memoizable
     #
     # @api private
     def set_method_visibility
-      @descendant.send(@original_visibility, @method_name)
+      @descendant.__send__(@original_visibility, @method_name)
     end
 
     # Get the visibility of the original method
