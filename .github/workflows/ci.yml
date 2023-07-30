@@ -1,7 +1,5 @@
 name: CI
-
 on: push
-
 jobs:
   base:
     name: Base steps
