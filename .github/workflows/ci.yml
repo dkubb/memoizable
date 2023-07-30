@@ -11,7 +11,6 @@ jobs:
     - name: Check Whitespace
       run: git diff --check -- HEAD~1
   rspec:
-    name: RSpec
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
