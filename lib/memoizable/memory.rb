@@ -81,22 +81,6 @@ module Memoizable
       end
     end
 
-    # Test if the name has a value in memory
-    #
-    # @example
-    #   memory = Memoizable::Memory.new(foo: 1)
-    #   memory.key?(:foo)  # => true
-    #   memory.key?(:bar)  # => false
-    #
-    # @param [Symbol] name
-    #
-    # @return [Boolean]
-    #
-    # @api public
-    def key?(name)
-      @memory.key?(name)
-    end
-
     # A hook that allows Marshal to dump the object
     #
     # @example
