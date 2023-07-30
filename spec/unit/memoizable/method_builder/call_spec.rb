@@ -38,6 +38,10 @@ describe Memoizable::MethodBuilder, '#call' do
   shared_examples_for 'Memoizable::MethodBuilder#call' do
     it_should_behave_like 'a command method'
 
+    it 'creates a method without warning to stderr' do
+      expect { subject }.to_not output.to_stderr
+    end
+
     it 'creates a method that is memoized' do
       subject
       expect(instance.send(method_name)).to be(instance.send(method_name))
