@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-if RUBY_ENGINE.eql?('ruby')
+begin
   require 'simplecov'
 
   SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]
@@ -12,6 +12,8 @@ if RUBY_ENGINE.eql?('ruby')
     command_name 'spec'
     minimum_coverage 100
   end
+rescue LoadError
+  $stderr.puts 'Warning: simplecov is not installed. Coverage analysis will be skipped.'
 end
 
 require 'memoizable'
