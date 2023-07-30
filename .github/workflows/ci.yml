@@ -22,6 +22,8 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # 'ruby/setup-ruby' action provides built-in caching
+    - name: Check Yard Doc coverage
+      run: bundle exec yardstick lib
     - name: Run tests (ruby-${{ matrix.ruby-version }})
       run: bundle exec rspec
     - name: Upload coverage
