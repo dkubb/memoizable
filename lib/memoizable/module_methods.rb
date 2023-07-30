@@ -31,30 +31,6 @@ module Memoizable
       self
     end
 
-    # Test if an instance method is memoized
-    #
-    # @example
-    #   class Foo
-    #     include Memoizable
-    #
-    #     def bar
-    #     end
-    #     memoize :bar
-    #   end
-    #
-    #   Foo.memoized?(:bar)  # true
-    #   Foo.memoized?(:baz)  # false
-    #
-    # @param [Symbol] name
-    #
-    # @return [Boolean]
-    #   true if method is memoized, false if not
-    #
-    # @api private
-    def memoized?(name)
-      memoized_methods.key?(name)
-    end
-
     # Return unmemoized instance method
     #
     # @example
