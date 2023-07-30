@@ -4,7 +4,7 @@ describe Memoizable::Memory, '#[]=' do
   subject { object[name] = value }
 
   let(:object) { described_class.new(cache) }
-  let(:cache)  { ThreadSafe::Cache.new      }
+  let(:cache)  { {}                         }
   let(:name)   { :test                      }
   let(:value)  { instance_double('Value')   }
 
@@ -35,7 +35,7 @@ describe Memoizable::Memory, '#[]=' do
     include_context 'mocked events'
 
     let(:cache) do
-      instance_double(ThreadSafe::Cache).tap do |cache|
+      instance_double(Hash).tap do |cache|
         register_events(cache, %i[key? []=])
       end
     end

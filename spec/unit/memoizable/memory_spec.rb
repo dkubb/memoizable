@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Memoizable::Memory do
-  let(:object) { Memoizable::Memory.new(ThreadSafe::Cache.new) }
+  let(:object) { Memoizable::Memory.new({}) }
 
   it 'is frozen' do
     expect(object).to be_frozen

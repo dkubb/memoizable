@@ -42,7 +42,7 @@ module Memoizable
     #
     # @api private
     def memoized_method_cache
-      @_memoized_method_cache ||= Memory.new(ThreadSafe::Cache.new)
+      @_memoized_method_cache ||= Memory.new({})
     end
 
   end # InstanceMethods

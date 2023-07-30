@@ -7,7 +7,7 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
-    # @param [ThreadSafe::Cache] memory
+    # @param [Hash] memory
     #
     # @return [undefined]
     #
@@ -95,7 +95,7 @@ module Memoizable
     #
     # @api public
     def marshal_dump
-      @memory.marshal_dump
+      @memory
     end
 
     # A hook that allows Marshal to load the object
@@ -111,8 +111,7 @@ module Memoizable
     #
     # @api public
     def marshal_load(hash)
-      initialize(ThreadSafe::Cache.new)
-      @memory.marshal_load(hash)
+      initialize(hash)
     end
 
   end # Memory
