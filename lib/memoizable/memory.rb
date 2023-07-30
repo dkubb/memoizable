@@ -29,7 +29,7 @@ module Memoizable
     #
     # @api public
     def [](name)
-      @memory.fetch(name) do
+      fetch(name) do
         fail NameError, "No method #{name} is memoized"
       end
     end
