@@ -21,4 +21,4 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true # 'ruby/setup-ruby' action provides built-in caching
-    - run: bundle exec rspec spec
+    - run: bundle exec rspec
