@@ -60,8 +60,8 @@ module Memoizable
       @method_name         = method_name
       @freezer             = freezer
       @original_visibility = visibility
-      @original_method     = @descendant.instance_method(@method_name)
-      assert_arity(@original_method.arity)
+      @original_method     = descendant.instance_method(@method_name)
+      assert_arity(original_method.arity)
     end
 
     # Build a new memoized method
