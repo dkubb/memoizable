@@ -32,3 +32,4 @@ jobs:
       with:
         name: coverage-${{ matrix.ruby-version }}
         path: coverage/
+        if-no-files-found: ignore
