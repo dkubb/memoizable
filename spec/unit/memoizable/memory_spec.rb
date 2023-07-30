@@ -3,6 +3,16 @@ require 'spec_helper'
 describe Memoizable::Memory do
   let(:object) { Memoizable::Memory.new }
 
+  it 'is frozen' do
+    expect(object).to be_frozen
+  end
+
+  # This test will raise if mutant removes the @monitor assignment
+  # in the constructor
+  it 'depends on the monitor' do
+    expect(object.fetch(:test) { :test }).to be(:test)
+  end
+
   context "serialization" do
     let(:deserialized) { Marshal.load(Marshal.dump(object)) }
 
