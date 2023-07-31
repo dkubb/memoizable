@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'monitor'
-require 'thread_safe'
 
 require 'memoizable/instance_methods'
 require 'memoizable/method_builder'

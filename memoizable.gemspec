@@ -17,6 +17,4 @@ Gem::Specification.new do |gem|
   gem.extra_rdoc_files = Dir['**/*.md']
 
   gem.required_ruby_version = '>= 2.1'
-
-  gem.add_runtime_dependency('thread_safe', '~> 0.3', '>= 0.3.4')
 end
