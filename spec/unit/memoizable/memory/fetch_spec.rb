@@ -14,13 +14,13 @@ describe Memoizable::Memory, '#fetch' do
 
     before do
       # Set other keys in memory
-      object[:other] = other
-      object[nil]    = nil
+      object.store(:other, other)
+      object.store(nil,    nil)
     end
 
     context 'when the memory is set' do
       before do
-        object[name] = value
+        object.store(name, value)
       end
 
       it 'returns the expected value' do

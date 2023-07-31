@@ -40,7 +40,8 @@ module Memoizable
     #
     # @example
     #   memory = Memoizable::Memory.new(foo: 1)
-    #   memory[:foo] = 2
+    #   memory.store(:foo, 2)
+    #   memory[:foo]  # => 2
     #
     # @param [Symbol] name
     # @param [Object] value
@@ -48,7 +49,7 @@ module Memoizable
     # @return [undefined]
     #
     # @api public
-    def []=(name, value)
+    def store(name, value)
       @monitor.synchronize do
         if @memory.key?(name)
           fail ArgumentError, "The method #{name} is already memoized"

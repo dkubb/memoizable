@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Memoizable::Memory, '#[]=' do
-  subject { object[name] = value }
+describe Memoizable::Memory, '#store' do
+  subject { object.store(name, value) }
 
   let(:object) { described_class.new(cache) }
   let(:cache)  { {}                         }
@@ -11,7 +11,7 @@ describe Memoizable::Memory, '#[]=' do
   context 'when the events are not mocked' do
     context 'when the memory is set' do
       before do
-        object[name] = value
+        object.store(name, value)
       end
 
       it 'raises an exception' do

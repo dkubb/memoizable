@@ -10,7 +10,7 @@ describe Memoizable::Memory, '#[]' do
     let(:value) { instance_double('Value') }
 
     before do
-      object[name] = value
+      object.store(name, value)
     end
 
     it 'returns the expected value' do
