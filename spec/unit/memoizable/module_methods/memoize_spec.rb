@@ -120,4 +120,19 @@ describe Memoizable::ModuleMethods, '#memoize' do
       expect(object.new.send(method)).to be_frozen
     end
   end
+
+  context 'when the method was already memoized' do
+    let(:method) { :test }
+
+    before do
+      object.memoize(method)
+    end
+
+    it 'raises an error' do
+      expect { subject }.to raise_error(
+        ArgumentError,
+        'The method test is already memoized'
+      )
+    end
+  end
 end

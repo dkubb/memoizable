@@ -69,6 +69,7 @@ module Memoizable
     #
     # @api private
     def memoize_method(method_name)
+      fail ArgumentError, "The method #{method_name} is already memoized" if memoized_methods.key?(method_name)
       memoized_methods[method_name] = MethodBuilder.new(
         self,
         method_name,
