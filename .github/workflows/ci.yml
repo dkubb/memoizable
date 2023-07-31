@@ -1,36 +1,34 @@
 name: CI
-
 on: push
-
 jobs:
   base:
     name: Base steps
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Check Whitespace
       run: git diff --check -- HEAD~1
   rspec:
-    name: RSpec
+    needs: base
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 5
     strategy:
       fail-fast: false
       matrix:
-        ruby:
-        - ruby-2.1
-        - ruby-2.2
-        - ruby-2.3
-        - ruby-2.4
-        - ruby-2.5
-        - ruby-2.6
-        - ruby-2.7
-        - jruby
+        ruby-version: [2.1, 2.3, 2.4, 2.5, 2.6, 2.7, '3.0', 3.1, 3.2, head, jruby, jruby-head, truffleruby, truffleruby-head]
         os: [ubuntu-latest]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ matrix.ruby }}
-    - run: bundle install
-    - run: bundle exec rspec spec
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true # 'ruby/setup-ruby' action provides built-in caching
+    - name: Check Yard Doc coverage
+      run: bundle exec yardstick lib
+    - name: Run tests (ruby-${{ matrix.ruby-version }})
+      run: bundle exec rspec
+    - name: Upload coverage
+      uses: actions/upload-artifact@v3
+      if: success()
+      with:
+        name: coverage-${{ matrix.ruby-version }}
+        path: coverage/

@@ -7,8 +7,6 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
-    # @param [ThreadSafe::Cache] memory
-    #
     # @return [undefined]
     #
     # @api private
@@ -19,6 +17,11 @@ module Memoizable
     end
 
     # Get the value from memory
+    #
+    # @example
+    #
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   memory[:foo]  # => 1
     #
     # @param [Symbol] name
     #
@@ -32,6 +35,10 @@ module Memoizable
     end
 
     # Store the value in memory
+    #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   memory[:foo] = 2
     #
     # @param [Symbol] name
     # @param [Object] value
@@ -50,10 +57,18 @@ module Memoizable
 
     # Fetch the value from memory, or store it if it does not exist
     #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   memory.fetch(:foo) { 2 }  # => 1
+    #   memory.fetch(:bar) { 2 }  # => 2
+    #   memory[:bar]              # => 2
+    #
     # @param [Symbol] name
     #
     # @yieldreturn [Object]
     #   the value to memoize
+    #
+    # @return [Object]
     #
     # @api public
     def fetch(name)
@@ -68,6 +83,11 @@ module Memoizable
 
     # Test if the name has a value in memory
     #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   memory.key?(:foo)  # => true
+    #   memory.key?(:bar)  # => false
+    #
     # @param [Symbol] name
     #
     # @return [Boolean]
@@ -79,6 +99,10 @@ module Memoizable
 
     # A hook that allows Marshal to dump the object
     #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   Marshal.dump(memory)  # => "\x04\bU:\x17Memoizable::Memory{\x06:\bfooi\x06"
+    #
     # @return [Hash]
     #   A hash used to populate the internal memory
     #
@@ -88,6 +112,10 @@ module Memoizable
     end
 
     # A hook that allows Marshal to load the object
+    #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   Marshal.load(Marshal.dump(memory))  # => #<Memoizable::Memory:0x007f9c2a8b6b20 @memory={:foo=>1}>
     #
     # @param [Hash] hash
     #   A hash used to populate the internal memory

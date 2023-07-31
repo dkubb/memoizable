@@ -38,6 +38,9 @@ module Memoizable
 
     # The original method before memoization
     #
+    # @example
+    #    method_builder.original_method  # => :foo
+    #
     # @return [UnboundMethod]
     #
     # @api public

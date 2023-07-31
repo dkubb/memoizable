@@ -4,9 +4,11 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'rake', '~> 10.1'
-
 group :test do
-  gem 'rspec',     '~> 3.1.0'
-  gem 'simplecov', '~> 0.9.1'
+  gem 'rspec',     '~> 3.8', '>= 3.8.0'
+  gem 'yardstick', '~> 0.9', '>= 0.9.9'
+
+  if RUBY_ENGINE.eql?('ruby') && RUBY_VERSION >= '2.7'
+    gem 'simplecov', '~> 0.22', '>= 0.22.0'
+  end
 end
