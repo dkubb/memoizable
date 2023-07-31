@@ -29,7 +29,7 @@ module Memoizable
     #
     # @api public
     def [](name)
-      @memory.fetch(name) do
+      fetch(name) do
         fail NameError, "No method #{name} is memoized"
       end
     end
@@ -75,7 +75,7 @@ module Memoizable
       @memory.fetch(name) do       # check for the key
         @monitor.synchronize do    # acquire a lock if the key is not found
           @memory.fetch(name) do   # recheck under lock
-            self[name] = yield     # set the value
+            @memory[name] = yield  # set the value
           end
         end
       end

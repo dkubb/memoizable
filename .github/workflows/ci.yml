@@ -18,6 +18,8 @@ jobs:
         os: [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
@@ -26,9 +28,17 @@ jobs:
       run: bundle exec yardstick lib
     - name: Run tests (ruby-${{ matrix.ruby-version }})
       run: bundle exec rspec
+    - name: Run mutant
+      run: |
+        if bundle show mutant; then
+          bundle exec mutant run --since HEAD~1
+        else
+          echo 'Mutant not supported on ${{ matrix.ruby-version }}'
+        fi
     - name: Upload coverage
       uses: actions/upload-artifact@v3
       if: success()
       with:
         name: coverage-${{ matrix.ruby-version }}
         path: coverage/
+        if-no-files-found: ignore

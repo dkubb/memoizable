@@ -1,0 +1,10 @@
+---
+integration:
+  name: rspec
+requires:
+  - memoizable
+matcher:
+  subjects:
+    - Memoizable*
+mutation:
+  timeout: 1.0

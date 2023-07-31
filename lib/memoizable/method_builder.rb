@@ -60,8 +60,8 @@ module Memoizable
       @method_name         = method_name
       @freezer             = freezer
       @original_visibility = visibility
-      @original_method     = @descendant.instance_method(@method_name)
-      assert_arity(@original_method.arity)
+      @original_method     = descendant.instance_method(@method_name)
+      assert_arity(original_method.arity)
     end
 
     # Build a new memoized method
@@ -73,7 +73,6 @@ module Memoizable
     #
     # @api public
     def call
-      remove_original_method
       create_memoized_method
       set_method_visibility
       self
@@ -94,16 +93,6 @@ module Memoizable
       if arity.nonzero?
         fail InvalidArityError.new(@descendant, @method_name, arity)
       end
-    end
-
-    # Remove the original method
-    #
-    # @return [undefined]
-    #
-    # @api private
-    def remove_original_method
-      name = @method_name
-      @descendant.module_eval { undef_method(name) }
     end
 
     # Create a new memoized method
@@ -129,7 +118,7 @@ module Memoizable
     #
     # @api private
     def set_method_visibility
-      @descendant.send(@original_visibility, @method_name)
+      @descendant.__send__(@original_visibility, @method_name)
     end
 
     # Get the visibility of the original method

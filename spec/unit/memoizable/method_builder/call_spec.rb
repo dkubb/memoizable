@@ -27,6 +27,11 @@ describe Memoizable::MethodBuilder, '#call' do
         __method__.to_s
       end
       private :private_method
+
+      def other_method
+        __method__.to_s
+      end
+      memoize :other_method
     end
   end
 
@@ -54,6 +59,15 @@ describe Memoizable::MethodBuilder, '#call' do
         described_class::BlockNotAllowedError,
         "Cannot pass a block to #{descendant}##{method_name}, it is memoized"
       )
+    end
+
+    it 'does not overwrite the cache for other methods' do
+      # This test will fail if the cache key is `nil` because the cache
+      # will be populated by the first call and the second call to the
+      # other method will return the wrong cached entry.
+      subject
+      expect(instance.send(method_name)).to eql(method_name.to_s)
+      expect(instance.other_method).to eql('other_method')
     end
   end
 
