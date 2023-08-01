@@ -8,7 +8,7 @@ describe Memoizable::Memory, '#marshal_load' do
 
   it 'loads the hash into memory' do
     subject
-    expect(object.key?(:test)).to be(true)
+    expect(object.fetch(:test)).to be(nil)
   end
 
   it 'freezes the object' do

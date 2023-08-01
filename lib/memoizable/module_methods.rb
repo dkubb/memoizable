@@ -31,30 +31,6 @@ module Memoizable
       self
     end
 
-    # Test if an instance method is memoized
-    #
-    # @example
-    #   class Foo
-    #     include Memoizable
-    #
-    #     def bar
-    #     end
-    #     memoize :bar
-    #   end
-    #
-    #   Foo.memoized?(:bar)  # true
-    #   Foo.memoized?(:baz)  # false
-    #
-    # @param [Symbol] name
-    #
-    # @return [Boolean]
-    #   true if method is memoized, false if not
-    #
-    # @api private
-    def memoized?(name)
-      memoized_methods.key?(name)
-    end
-
     # Return unmemoized instance method
     #
     # @example
@@ -93,6 +69,7 @@ module Memoizable
     #
     # @api private
     def memoize_method(method_name)
+      fail ArgumentError, "The method #{method_name} is already memoized" if memoized_methods.key?(method_name)
       memoized_methods[method_name] = MethodBuilder.new(
         self,
         method_name,
@@ -106,7 +83,7 @@ module Memoizable
     #
     # @api private
     def memoized_methods
-      @_memoized_methods ||= Memory.new
+      @_memoized_methods ||= {}
     end
 
   end # ModuleMethods

@@ -7,4 +7,5 @@ matcher:
   subjects:
     - Memoizable*
 mutation:
+  operators: full
   timeout: 1.0

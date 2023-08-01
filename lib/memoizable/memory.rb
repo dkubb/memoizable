@@ -7,11 +7,13 @@ module Memoizable
 
     # Initialize the memory storage for memoized methods
     #
+    # @param [Hash] memory
+    #
     # @return [undefined]
     #
     # @api private
-    def initialize
-      @memory  = ThreadSafe::Cache.new
+    def initialize(memory)
+      @memory  = memory
       @monitor = Monitor.new
       freeze
     end
@@ -38,7 +40,8 @@ module Memoizable
     #
     # @example
     #   memory = Memoizable::Memory.new(foo: 1)
-    #   memory[:foo] = 2
+    #   memory.store(:foo, 2)
+    #   memory[:foo]  # => 2
     #
     # @param [Symbol] name
     # @param [Object] value
@@ -46,13 +49,14 @@ module Memoizable
     # @return [undefined]
     #
     # @api public
-    def []=(name, value)
-      memoized = true
-      @memory.compute_if_absent(name) do
-        memoized = false
-        value
+    def store(name, value)
+      @monitor.synchronize do
+        if @memory.key?(name)
+          fail ArgumentError, "The method #{name} is already memoized"
+        else
+          @memory[name] = value
+        end
       end
-      fail ArgumentError, "The method #{name} is already memoized" if memoized
     end
 
     # Fetch the value from memory, or store it if it does not exist
@@ -81,22 +85,6 @@ module Memoizable
       end
     end
 
-    # Test if the name has a value in memory
-    #
-    # @example
-    #   memory = Memoizable::Memory.new(foo: 1)
-    #   memory.key?(:foo)  # => true
-    #   memory.key?(:bar)  # => false
-    #
-    # @param [Symbol] name
-    #
-    # @return [Boolean]
-    #
-    # @api public
-    def key?(name)
-      @memory.key?(name)
-    end
-
     # A hook that allows Marshal to dump the object
     #
     # @example
@@ -108,7 +96,7 @@ module Memoizable
     #
     # @api public
     def marshal_dump
-      @memory.marshal_dump
+      @memory
     end
 
     # A hook that allows Marshal to load the object
@@ -124,8 +112,7 @@ module Memoizable
     #
     # @api public
     def marshal_load(hash)
-      initialize
-      @memory.marshal_load(hash)
+      initialize(hash)
     end
 
   end # Memory

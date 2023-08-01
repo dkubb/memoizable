@@ -3,14 +3,14 @@ require 'spec_helper'
 describe Memoizable::Memory, '#[]' do
   subject { object[name] }
 
-  let(:object) { described_class.new }
-  let(:name)   { :test               }
+  let(:object) { described_class.new({}) }
+  let(:name)   { :test                   }
 
   context 'when the memory is set' do
     let(:value) { instance_double('Value') }
 
     before do
-      object[name] = value
+      object.store(name, value)
     end
 
     it 'returns the expected value' do
