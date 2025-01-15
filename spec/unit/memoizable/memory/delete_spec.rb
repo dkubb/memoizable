@@ -3,8 +3,12 @@ require 'spec_helper'
 describe Memoizable::Memory, '#delete' do
   subject { described_class.new(foo: 1) }
 
-  it 'removes a specific value' do
+  it 'returns nil' do
     expect(subject.delete(:foo)).to be_nil
+  end
+
+  it 'removes a specific value' do
+    subject.delete(:foo)
     expect { subject[:foo] }.to raise_error(NameError)
   end
 
