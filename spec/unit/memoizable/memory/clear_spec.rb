@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Memoizable::Memory, '#clear' do
   subject { described_class.new(foo: 1) }
 
-  it 'returns itself' do
+  it 'returns nil' do
     expect(subject.clear).to be_nil
   end
 
