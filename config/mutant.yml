@@ -1,4 +1,5 @@
 ---
+usage: opensource
 integration:
   name: rspec
 requires:
