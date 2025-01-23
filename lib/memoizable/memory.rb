@@ -102,6 +102,22 @@ module Memoizable
       end
     end
 
+    # Remove all values from memory
+    #
+    # @example
+    #   memory = Memoizable::Memory.new(foo: 1)
+    #   memory.clear  # => memory
+    #
+    # @return [self]
+    #
+    # @api public
+    def clear
+      @monitor.synchronize do
+        @memory.clear
+      end
+      self
+    end
+
     # A hook that allows Marshal to dump the object
     #
     # @example
