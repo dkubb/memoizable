@@ -1,21 +1,26 @@
 # frozen_string_literal: true
 
-require File.expand_path("lib/memoizable/version", __dir__)
+lib = File.expand_path("lib", __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require "memoizable/version"
 
 Gem::Specification.new do |gem|
   gem.name = "memoizable"
-  gem.version = Memoizable::VERSION.dup
+  gem.version = Memoizable::VERSION
   gem.authors = ["Dan Kubb", "Erik Berlin"]
   gem.email = ["dan.kubb@gmail.com", "sferik@gmail.com"]
-  gem.description = "Memoize method return values"
-  gem.summary = gem.description
+  gem.summary = "Memoize method return values"
+  gem.description = gem.summary
   gem.homepage = "https://github.com/dkubb/memoizable"
   gem.license = "MIT"
 
-  gem.require_paths = %w[lib]
-  gem.files = %w[CONTRIBUTING.md LICENSE.md README.md memoizable.gemspec] + Dir["lib/**/*.rb"]
-  gem.extra_rdoc_files = Dir["**/*.md"]
+  gem.required_ruby_version = ">= 3.2"
 
-  gem.required_ruby_version = ">= 3.1"
+  gem.files = Dir["lib/**/*", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE.md", "README.md"]
+  gem.require_paths = ["lib"]
+
+  gem.metadata["homepage_uri"] = gem.homepage
+  gem.metadata["source_code_uri"] = "https://github.com/dkubb/memoizable"
+  gem.metadata["changelog_uri"] = "https://github.com/dkubb/memoizable/blob/main/CHANGELOG.md"
   gem.metadata["rubygems_mfa_required"] = "true"
 end

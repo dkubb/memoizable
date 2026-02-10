@@ -16,6 +16,10 @@
 
 Memoize method return values
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for details.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
@@ -80,7 +84,6 @@ Supported Ruby Versions
 
 This library aims to support and is tested against the following Ruby versions:
 
-* Ruby 3.1
 * Ruby 3.2
 * Ruby 3.3
 * Ruby 3.4
