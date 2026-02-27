@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "it calls super" do |method|
+RSpec.shared_examples "it calls super" do |method|
   around do |example|
     # Restore original method after each example
     original = "original_#{method}"

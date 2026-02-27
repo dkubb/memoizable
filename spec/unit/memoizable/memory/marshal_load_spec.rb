@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory, "#marshal_load" do
+RSpec.describe Memoizable::Memory, "#marshal_load" do
   subject(:load_hash) { object.marshal_load(hash) }
 
   let(:object) { described_class.allocate }

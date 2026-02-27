@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::ModuleMethods, "#unmemoized_instance_method" do
+RSpec.describe Memoizable::ModuleMethods, "#unmemoized_instance_method" do
   subject(:unmemoized_method) { object.unmemoized_instance_method(name) }
 
   let(:object) do

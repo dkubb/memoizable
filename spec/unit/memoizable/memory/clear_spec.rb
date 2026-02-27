@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory, "#clear" do
+RSpec.describe Memoizable::Memory, "#clear" do
   subject(:memory) { described_class.new(foo: 1) }
 
   shared_examples "with #clear behaviour" do

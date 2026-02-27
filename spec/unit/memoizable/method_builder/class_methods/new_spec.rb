@@ -3,7 +3,7 @@
 require "spec_helper"
 require File.expand_path("../../fixtures/classes", __dir__)
 
-describe Memoizable::MethodBuilder, ".new" do
+RSpec.describe Memoizable::MethodBuilder, ".new" do
   subject(:method_builder) { described_class.new(descendant, method_name, freezer) }
 
   let(:descendant) { Fixture::Object }

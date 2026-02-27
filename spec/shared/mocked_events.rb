@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "with mocked events" do
+RSpec.shared_context "with mocked events" do
   def register_events(object, method_names)
     method_names.each do |method_name|
       allow(object).to receive(method_name) do |*args, &block|
@@ -17,7 +17,7 @@ shared_context "with mocked events" do
   end
 end
 
-shared_examples "executes all events" do
+RSpec.shared_examples "executes all events" do
   it "executes all events" do
     begin
       subject
