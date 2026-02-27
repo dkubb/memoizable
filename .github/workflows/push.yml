@@ -28,7 +28,7 @@ jobs:
       - name: Update RubyGems
         run: gem update --system
       - name: Build gem
-        run: bundle exec rake build
+        run: bundle exec rake clobber build
       - name: Sign gem with Sigstore
         run: gem exec sigstore-cli sign pkg/*.gem --bundle pkg/memoizable.gem.sigstore.json
       - name: Push gem
