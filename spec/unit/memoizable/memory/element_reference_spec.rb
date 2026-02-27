@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory, "#[]" do
+RSpec.describe Memoizable::Memory, "#[]" do
   subject(:fetch_value) { object[name] }
 
   let(:object) { described_class.new({}) }

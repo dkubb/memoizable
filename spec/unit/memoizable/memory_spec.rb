@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory do
+RSpec.describe Memoizable::Memory do
   let(:object) { described_class.new({}) }
 
   it "is frozen" do

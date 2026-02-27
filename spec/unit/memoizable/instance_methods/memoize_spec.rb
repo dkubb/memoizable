@@ -3,7 +3,7 @@
 require "spec_helper"
 require File.expand_path("../fixtures/classes", __dir__)
 
-describe Memoizable::InstanceMethods, "#memoize" do
+RSpec.describe Memoizable::InstanceMethods, "#memoize" do
   subject(:memoize_value) { object.memoize(method => value) }
 
   let(:described_class) { Class.new(Fixture::Object) }

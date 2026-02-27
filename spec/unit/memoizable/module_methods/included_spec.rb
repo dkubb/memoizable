@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::ModuleMethods, "#included" do
+RSpec.describe Memoizable::ModuleMethods, "#included" do
   subject(:include_module) { descendant.instance_exec(object) { |mod| include mod } }
 
   let(:object) { Module.new.extend(described_class) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::MethodBuilder, "#original_method" do
+RSpec.describe Memoizable::MethodBuilder, "#original_method" do
   subject(:original_method) { object.original_method }
 
   let(:object) { described_class.new(descendant, method_name, freezer) }

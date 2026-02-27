@@ -25,7 +25,7 @@ class Child < Parent
   attr_reader :child_foo_call_count
 end
 
-describe Child do
+RSpec.describe Child do
   subject(:child) { described_class.new }
 
   before do

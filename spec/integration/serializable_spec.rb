@@ -11,7 +11,7 @@ class Serializable
   memoize :random_number
 end
 
-describe Serializable do
+RSpec.describe Serializable do
   let(:serializable) do
     described_class.new
   end

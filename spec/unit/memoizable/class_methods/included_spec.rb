@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable, ".included" do
+RSpec.describe Memoizable, ".included" do
   subject(:include_memoizable) { object.class_eval { include Memoizable } }
 
   let(:object) { Class.new }

@@ -3,7 +3,7 @@
 require "spec_helper"
 require File.expand_path("../fixtures/classes", __dir__)
 
-shared_examples_for "memoizes method" do
+RSpec.shared_examples_for "memoizes method" do
   it "memoizes the instance method" do
     memoize_method
     instance = object.new
@@ -30,7 +30,7 @@ shared_examples_for "memoizes method" do
   end
 end
 
-describe Memoizable::ModuleMethods, "#memoize" do
+RSpec.describe Memoizable::ModuleMethods, "#memoize" do
   subject(:memoize_method) { object.memoize(method) }
 
   let(:object) do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory, "#fetch" do
+RSpec.describe Memoizable::Memory, "#fetch" do
   subject(:fetch_result) { object.fetch(name) { default } }
 
   let(:object) { described_class.new(cache) }

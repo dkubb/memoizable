@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Memoizable::Memory, "#store" do
+RSpec.describe Memoizable::Memory, "#store" do
   subject(:store_value) { object.store(name, value) }
 
   let(:object) { described_class.new(cache) }

@@ -3,7 +3,7 @@
 require "spec_helper"
 require File.expand_path("../fixtures/classes", __dir__)
 
-describe Memoizable::InstanceMethods, "#freeze" do
+RSpec.describe Memoizable::InstanceMethods, "#freeze" do
   subject(:freeze_object) { object.freeze }
 
   let(:described_class) { Class.new(Fixture::Object) }
