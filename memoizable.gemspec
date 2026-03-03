@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
 
   gem.required_ruby_version = ">= 3.2"
 
-  gem.files = Dir["lib/**/*", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE.md", "README.md"]
+  gem.files = Dir["lib/**/*", "sig/**/*", "CHANGELOG.md", "CONTRIBUTING.md", "LICENSE.md", "README.md"]
   gem.require_paths = ["lib"]
 
   gem.metadata["homepage_uri"] = gem.homepage
