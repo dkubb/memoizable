@@ -6,9 +6,9 @@ begin
   SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]
 
   SimpleCov.start do
-    add_filter "/config"
-    add_filter "/spec"
-    add_filter "/vendor"
+    skip "/config"
+    skip "/spec"
+    skip "/vendor"
     command_name "spec"
 
     if RUBY_ENGINE == "ruby"
