@@ -2,18 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/2.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [0.5.1] - 2026-03-03
+## [0.5.1] - 2026-03-04
 
 ### Fixed
 
 - Include RBS signature file in gem package
 
-## [0.5.0] - 2026-02-09
+## [0.5.0] - 2026-02-28
 
 ### Added
 
@@ -29,16 +29,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Renamed `Memory#[]=` to `Memory#store`
-- `ModuleMethods#memoize` now raises `ArgumentError` when method is already memoized
-- Memoization cache now uses composite keys `[class, method_name]` to support inheritance ([#13](https://github.com/dkubb/memoizable/issues/13))
+- **Breaking:** Renamed `Memory#[]=` to `Memory#store`
+- **Breaking:** `ModuleMethods#memoize` now raises `ArgumentError` when method is already memoized
+- Memoization cache now uses composite keys `[class, method_name]` to support inheritance ([#13])
 - Replaced `thread_safe` gem dependency with Ruby's built-in `Monitor`
 
 ### Removed
 
-- `Memory#key?` method
-- `ModuleMethods#memoized?` method
-- `ModuleMethods#included` method
+- **Breaking:** `Memory#key?` method
+- **Breaking:** `ModuleMethods#memoized?` method
+- **Breaking:** `ModuleMethods#included` method
 - `thread_safe` gem dependency
 
 ## [0.4.2] - 2014-03-27
@@ -61,7 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `Memory#marshal_dump` and `Memory#marshal_load` methods for Marshal serialization support ([#10](https://github.com/dkubb/memoizable/issues/10))
+- `Memory#marshal_dump` and `Memory#marshal_load` methods for Marshal serialization support ([#10])
 
 ## [0.3.1] - 2013-12-18
 
@@ -73,7 +73,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Unnecessary `Memory#set` method
 
-## [0.3.0] - 2013-12-15
+## [0.3.0] - 2013-12-14
 
 ### Added
 
@@ -105,3 +105,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.3.1]: https://github.com/dkubb/memoizable/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/dkubb/memoizable/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/dkubb/memoizable/compare/v0.0.0...v0.2.0
+
+[#10]: https://github.com/dkubb/memoizable/issues/10
+[#13]: https://github.com/dkubb/memoizable/issues/13
