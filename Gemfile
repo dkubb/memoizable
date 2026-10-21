@@ -12,7 +12,7 @@ group :test do
   gem "rubocop-performance", ">= 1.24"
   gem "rubocop-rake", ">= 0.7"
   gem "rubocop-rspec", ">= 3.5"
-  gem "simplecov", ">= 0.22"
+  gem "simplecov", ">= 1"
   gem "standard", ">= 1.46"
   gem "standard-performance", ">= 1.7"
   gem "steep", ">= 1.9", platforms: :ruby
