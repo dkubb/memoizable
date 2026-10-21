@@ -71,13 +71,12 @@ class Planet
 end
 ```
 
-## Warning
-
-The example above assumes that the radius and area of a planet will not change
-over time. This seems like a reasonable assumption but such an assumption is
-not safe in every domain. If it was possible for one of the attributes to
-change between method calls, memoizing that value could produce the wrong
-result. Please keep this in mind when considering which methods to memoize.
+> [!WARNING]
+> The example above assumes that the radius and area of a planet will not change
+> over time. This seems like a reasonable assumption but such an assumption is
+> not safe in every domain. If it was possible for one of the attributes to
+> change between method calls, memoizing that value could produce the wrong
+> result. Please keep this in mind when considering which methods to memoize.
 
 Supported Ruby Versions
 -----------------------
