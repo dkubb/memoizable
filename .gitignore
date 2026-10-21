@@ -1,3 +1,4 @@
+.mutant/
 .yardoc/
 Gemfile.lock
 coverage/
