@@ -58,3 +58,10 @@ desc "Generate and verify documentation"
 task docs: %i[yard verify_measurements]
 
 task default: %i[test lint mutant docs steep]
+
+begin
+  require "duel/rake_task"
+  Duel::RakeTask.new
+rescue LoadError
+  # Duel requires Ruby 3.4 or later
+end

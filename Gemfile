@@ -19,3 +19,9 @@ group :test do
   gem "yard", ">= 0.9.38"
   gem "yardstick", ">= 0.9.9"
 end
+
+group :development do
+  # Duel requires Ruby 3.4 or later
+  gem "duel" if Gem::Version.new(RUBY_VERSION) >= Gem::Version.new("3.4")
+  gem "stackprof", platforms: :mri
+end

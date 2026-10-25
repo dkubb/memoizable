@@ -6,6 +6,7 @@
 [![Mutant](https://github.com/dkubb/memoizable/actions/workflows/mutant.yml/badge.svg)][mutant]
 [![Docs](https://github.com/dkubb/memoizable/actions/workflows/docs.yml/badge.svg)][docs]
 [![Steep](https://github.com/dkubb/memoizable/actions/workflows/steep.yml/badge.svg)][steep]
+[![Duel](https://raw.githubusercontent.com/sferik/duel-ruby/main/assets/badge.svg)](https://github.com/sferik/duel-ruby)
 
 [gem]: https://rubygems.org/gems/memoizable
 [test]: https://github.com/dkubb/memoizable/actions/workflows/test.yml
