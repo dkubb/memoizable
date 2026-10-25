@@ -5,3 +5,4 @@ coverage/
 doc/
 measurements/
 pkg/
+/tmp/
